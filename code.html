@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Scinico Family Dental | Madison, WI</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>
+@layer base { 
+  html, body { margin: 0; padding: 0; } 
+  body { overscroll-behavior: none; } 
+  main > :first-child { margin-top: 0 !important; } 
+  main > :last-child { margin-bottom: 0 !important; } 
+} 
+::-webkit-scrollbar { display: none; }
+
+/* Micro-interaction & Motion Design Styles */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes floatGentleAlt {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.05); }
+}
+
+@keyframes heroWave {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3%, 2%) scale(1.08); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.animate-float-alt {
+  animation: floatGentleAlt 6.5s ease-in-out infinite;
+}
+
+.ambient-hero-blob {
+  animation: heroWave 16s ease-in-out infinite;
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.btn-shimmer:hover::after {
+  animation: shimmerSweep 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scroll reveal initial states */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover enhancements with refined ambient glow */
+.interactive-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 32px -8px rgba(0, 106, 98, 0.12), 0 8px 16px -4px rgba(13, 59, 76, 0.08);
+}
+
+/* Form input focus shine */
+.input-focus-glow {
+  transition: all 0.25s ease;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.input-focus-glow:focus {
+  outline-color: rgba(0, 106, 98, 0.4);
+  box-shadow: 0 0 0 4px rgba(112, 248, 232, 0.25);
+  background-color: #ffffff;
+}
+
+/* Image 3D container hover shine */
+.operatory-glow-wrapper {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.operatory-glow-wrapper:hover {
+  transform: scale(1.015) rotate(0.4deg);
+  box-shadow: 0 24px 44px -10px rgba(0, 37, 50, 0.22), 0 0 28px rgba(79, 219, 204, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-tint": "#3c6376", "error": "#ba1a1a", "surface-dim": "#c1dfec", "outline": "#71787c", "on-primary-fixed-variant": "#224c5d", "secondary": "#006a62", "on-background": "#001f28", "on-secondary": "#ffffff", "tertiary": "#00252e", "on-tertiary-fixed": "#001f27", "inverse-surface": "#17343e", "on-error-container": "#93000a", "surface-container-low": "#e5f6ff", "tertiary-container": "#003c4a", "outline-variant": "#c1c7cc", "on-primary": "#ffffff", "on-primary-container": "#7da5b9", "surface-container": "#d6f2ff", "on-secondary-fixed-variant": "#005049", "primary-fixed-dim": "#a4cce1", "primary-container": "#0d3b4c", "on-tertiary-fixed-variant": "#004e5f", "on-error": "#ffffff", "primary-fixed": "#bfe9fe", "primary": "#002532", "inverse-primary": "#a4cce1", "error-container": "#ffdad6", "surface-bright": "#f3fbff", "on-secondary-fixed": "#00201d", "secondary-fixed-dim": "#4fdbcc", "surface-variant": "#c9e7f4", "on-surface-variant": "#41484c", "on-tertiary-container": "#00aed1", "surface-container-lowest": "#ffffff", "surface-container-high": "#cfedfa", "on-secondary-container": "#007168", "on-tertiary": "#ffffff", "secondary-container": "#70f8e8", "background": "#f3fbff", "inverse-on-surface": "#ddf4ff", "tertiary-fixed-dim": "#4cd6fb", "on-surface": "#001f28", "secondary-fixed": "#70f8e8", "tertiary-fixed": "#b3ebff", "on-primary-fixed": "#001f2a", "surface-container-highest": "#c9e7f4", "surface": "#f3fbff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-2xl": "4rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xl": "2.5rem", "margin-mobile": "1.25rem", "margin": "3rem", "space-xs": "0.25rem", "gutter-sm": "1rem", "gutter": "1.5rem" }, "fontFamily": { "label-interactive": [ "Plus Jakarta Sans" ], "display-hero": [ "Plus Jakarta Sans" ], "label-credential": [ "Plus Jakarta Sans" ], "headline-sm": [ "Plus Jakarta Sans" ], "display-hero-mobile": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ], "headline-lg": [ "Plus Jakarta Sans" ], "headline-md": [ "Plus Jakarta Sans" ], "headline-lg-mobile": [ "Plus Jakarta Sans" ], "body-lg": [ "Plus Jakarta Sans" ], "body-md": [ "Plus Jakarta Sans" ] }, "fontSize": { "label-interactive": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" } ], "display-hero": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" } ], "label-credential": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" } ], "headline-sm": [ "20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "display-hero-mobile": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-sm": [ "14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-lg": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.025em", "fontWeight": "700" } ], "headline-md": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-lg-mobile": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-lg": [ "18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" } ], "body-md": [ "16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-fixed"><header class="fixed top-0 left-0 right-0 z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full bg-primary-container text-on-primary font-label-credential text-label-credential py-2 px-margin-mobile lg:px-margin transition-colors"><div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-y-1 gap-x-space-md"><div class="flex flex-wrap items-center gap-x-space-lg gap-y-1"><span class="flex items-center gap-space-xs hover:text-secondary-fixed transition-colors"><span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim">location_on</span><span class="">2037 Winnebago St, Suite 1, Madison, WI</span></span><span class="hidden md:inline-block text-outline-variant/40">•</span><a class="flex items-center gap-space-xs hover:text-secondary-fixed transition-colors" href="tel:6082496616"><span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim">call</span><span class="">(608) 249-6616</span></a><span class="hidden xl:inline-block text-outline-variant/40">•</span><span class="hidden xl:flex items-center gap-space-xs"><span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim">schedule</span><span class="">Mon–Thu 7:30am–5:00pm, Fri By Appt</span></span></div><div class="flex items-center gap-space-sm"><span class="flex items-center gap-1 bg-surface-container-lowest/10 px-2 py-0.5 rounded-full hover:bg-surface-container-lowest/20 transition-all"><span class="material-symbols-outlined text-[14px] text-secondary-fixed-dim">star</span><span class="font-label-interactive text-label-interactive text-surface-bright">4.9/5</span><span class="text-outline-variant text-[11px]">(180+ Reviews)</span></span></div></div></div><div class="h-20 w-full bg-surface-container-lowest/90 backdrop-blur-xl transition-all"><div class="max-w-[1440px] h-full mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><img alt="Scinico Family Dental Logo" class="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhw0ZLlYlcxRyoD32hlKcXI314YbRX86auf1wMA5pEi3jrLEyOycPDfd78fUaypJRdlRRSxbhLZn4NEyR81eLTc2DfIT2s0hvT10Vje9gpOAWDWVsSnFIseUPZUOD08TDKXWt0vAiuoPlcljQs0MHu1cjW1gel127NpGtlKKTk6gsCvRArWF99iIGnohvkaY99GcfXfd8980bp6OoOqqNUa0qz0W8Cs0ybyNKRk2Q"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight font-bold tracking-tight group-hover:text-secondary transition-colors">Scinico</span><span class="font-label-credential text-label-credential tracking-widest uppercase text-surface-tint">Family Dental</span></div></a></div><nav class="hidden xl:flex items-center gap-1 font-label-interactive text-label-interactive"><a class="px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-200 rounded-lg hover:-translate-y-0.5" href="#about-dr-scinico">About Dr. Scinico</a><a class="px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-200 rounded-lg hover:-translate-y-0.5" href="#comprehensive-services">Comprehensive Services</a><a class="px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-200 rounded-lg hover:-translate-y-0.5" href="#membership-plans">Membership Plans</a><a class="px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-200 rounded-lg hover:-translate-y-0.5" href="#appointment-triage">Insurance &amp; Financing</a><a class="px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-200 rounded-lg hover:-translate-y-0.5" href="#patient-reviews">Patient Stories</a></nav><div class="flex items-center gap-space-sm"><a class="hidden sm:flex items-center px-4 py-2.5 rounded-lg font-label-interactive text-label-interactive text-primary hover:bg-surface-container transition-all duration-200 hover:-translate-y-0.5" href="tel:6082496616"><span class="material-symbols-outlined text-[18px] mr-1.5 text-secondary">phone_in_talk</span><span class="">Call (608) 249-6616</span></a><a class="btn-shimmer flex items-center px-5 py-2.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-interactive text-label-interactive shadow-[0_4px_20px_-2px_rgba(13,59,76,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-cyan-900/20" href="#appointment-triage"><span class="">Request Appointment</span><span class="material-symbols-outlined text-[18px] ml-1.5 transition-transform duration-300 group-hover:translate-x-1">calendar_month</span></a><button aria-label="Toggle Navigation Menu" class="xl:hidden flex items-center justify-center p-2 rounded-lg text-primary hover:bg-surface-container transition-colors" onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')"><span class="material-symbols-outlined text-[24px]">menu</span></button></div></div></div><div class="hidden xl:hidden w-full bg-surface-container-lowest border-t border-surface-container px-margin-mobile py-4 shadow-lg flex flex-col gap-2 font-label-interactive text-label-interactive" id="mobile-drawer"><a class="px-3 py-2.5 rounded-lg text-primary hover:bg-surface-container transition-colors flex items-center justify-between" href="#about-dr-scinico" onclick="document.getElementById('mobile-drawer').classList.add('hidden')"><span class="">About Dr. Scinico</span><span class="material-symbols-outlined text-[18px]">person</span></a><a class="px-3 py-2.5 rounded-lg text-primary hover:bg-surface-container transition-colors flex items-center justify-between" href="#comprehensive-services" onclick="document.getElementById('mobile-drawer').classList.add('hidden')"><span class="">Comprehensive Services</span><span class="material-symbols-outlined text-[18px]">dentistry</span></a><a class="px-3 py-2.5 rounded-lg text-primary hover:bg-surface-container transition-colors flex items-center justify-between" href="#membership-plans" onclick="document.getElementById('mobile-drawer').classList.add('hidden')"><span class="">In-House Membership Plans</span><span class="material-symbols-outlined text-[18px]">card_membership</span></a><a class="px-3 py-2.5 rounded-lg text-primary hover:bg-surface-container transition-colors flex items-center justify-between" href="#appointment-triage" onclick="document.getElementById('mobile-drawer').classList.add('hidden')"><span class="">Request Appointment</span><span class="material-symbols-outlined text-[18px]">calendar_today</span></a><a class="px-3 py-2.5 rounded-lg text-secondary hover:bg-surface-container transition-colors flex items-center justify-between font-bold" href="tel:6082496616"><span class="">Call Office: (608) 249-6616</span><span class="material-symbols-outlined text-[18px]">call</span></a></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden bg-surface-bright pt-6 pb-20 lg:pt-12 lg:pb-28">
+<!-- Gentle ambient gradient aura -->
+<div aria-hidden="true" class="ambient-hero-blob absolute -top-40 -right-24 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-secondary-fixed/30 via-surface-container-high/40 to-transparent blur-3xl pointer-events-none -z-0"></div>
+<div aria-hidden="true" class="ambient-hero-blob absolute -bottom-32 -left-20 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-surface-container/60 via-primary-fixed/20 to-transparent blur-3xl pointer-events-none -z-0"></div>
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Left Column: Copy & Trust Pills -->
+<div class="lg:col-span-7 flex flex-col items-start z-10 reveal-on-scroll">
+<!-- Glassmorphic Credential Badges -->
+<div class="flex flex-wrap items-center gap-2 mb-6">
+<span class="animate-float inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-credential text-label-credential shadow-sm border border-surface-container-highest/60 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary text-[16px]">star</span>
+<span class="">4.9/5 on Google &amp; Reddit</span>
+<span class="text-surface-tint font-normal">(180+ Reviews)</span>
+</span>
+<span class="animate-float-alt inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-credential text-label-credential shadow-sm border border-surface-container-highest/60 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+<span class="">Castle Connolly Top Dentist 2022–2026</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-credential text-label-credential shadow-sm border border-surface-container-highest/60 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary text-[16px]">history_edu</span>
+<span class="">50-Year Near-East Heritage</span>
+</span>
+</div>
+<!-- Hero Headline -->
+<h1 class="font-headline-lg lg:font-display-hero text-headline-lg lg:text-display-hero text-primary tracking-tight mb-6">
+            Personalized, honest dental care in Madison’s Near-East Side.
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8 leading-relaxed">
+            Independent, physician-led dentistry with zero corporate sales pressure. Led by Dr. Richard N. Scinico, DMD, bringing 30+ years of calm precision, gentle touch, and uncompromising clinical excellence to Winnebago Street.
+          </p>
+<!-- CTAs & Micro-details -->
+<div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-8">
+<a class="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-interactive text-label-interactive shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-950/20" href="#appointment-triage">
+<span class="">Request an Appointment</span>
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-surface-container text-primary hover:bg-surface-container-high font-label-interactive text-label-interactive transition-all duration-300 hover:-translate-y-1 hover:shadow-sm" href="#membership-plans">
+<span class="">Explore In-House Membership</span>
+<span class="material-symbols-outlined text-[18px]">card_membership</span>
+</a>
+</div>
+<!-- Early Morning Feature Highlight -->
+<div class="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-low text-primary max-w-xl border border-surface-container/60 hover:border-secondary/40 transition-colors">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0">alarm_on</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-primary font-label-interactive">Early 7:30 AM Appointments Available Mon–Thu</strong> — tailored for UW faculty, state staff, and local professionals before their workday begins.
+            </p>
+</div>
+</div>
+<!-- Right Column: Visual Operatory Composition -->
+<div class="lg:col-span-5 relative reveal-on-scroll">
+<div class="operatory-glow-wrapper relative rounded-3xl overflow-hidden shadow-2xl bg-surface-container-high border border-surface-container">
+<img alt="Scinico Family Dental bright serene treatment room with panoramic garden view, ergonomic chair, and 3D digital imaging screen" class="w-full h-[460px] lg:h-[540px] object-cover transition-transform duration-700 ease-out hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2FYWM-wldKLZGkhTqgKXrVDmIHslKW-Dm2_iTLJ_vMgQMtprrZXUiU4PNQa2IB9d-bD4g41KmRWefGwOUSCpz4cRd5rnM8OchqPt6_jAMBYct3I00T3in2mnoVZZKBtaX58txG6SaaXZX6wGt7vfPwa2jZ0hrSkwxJ3LHcK4Uf6uBnjWU4as_ClVv3OEp4Pk34OB2zkrID9r-maXe2i2ufNNnHIMI8GVK2Pd477g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent pointer-events-none"></div>
+<!-- Floating Operatory Info Overlay -->
+<div class="animate-float absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-surface-container-lowest/90 backdrop-blur-md shadow-lg flex items-center justify-between gap-4 border border-white/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-primary shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-[20px]">view_in_ar</span>
+</div>
+<div>
+<div class="font-label-interactive text-label-interactive text-primary">Operatory 1: Serene Garden View</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Low-stress acoustic design &amp; 3D Imaging</div>
+</div>
+</div>
+<div class="hidden sm:flex flex-col items-end">
+<span class="text-xs font-bold text-secondary uppercase tracking-wider">Independent</span>
+<span class="text-xs text-outline">Winnebago St</span>
+</div>
+</div>
+</div>
+<!-- Decorative Accent Card Floating -->
+<div class="animate-float-alt hidden sm:flex absolute -top-4 -left-6 bg-surface-container-lowest/95 backdrop-blur-sm px-4 py-3 rounded-2xl shadow-xl items-center gap-3 border border-surface-container">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div>
+<div class="font-label-credential text-label-credential text-primary">DMD / US NAVY VET</div>
+<div class="text-[11px] text-surface-tint">30+ Years Experience</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Trust Carrier Ribbon -->
+<div class="reveal-on-scroll mt-14 pt-8 rounded-2xl bg-surface-container-low px-6 py-6 lg:px-10 border border-surface-container/60 shadow-sm">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-2 shrink-0">
+<span class="material-symbols-outlined text-secondary text-[20px]">account_balance_wallet</span>
+<span class="font-label-interactive text-label-interactive text-primary">In-Network &amp; Direct Financing:</span>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-label-credential text-label-credential text-on-surface-variant uppercase tracking-wider">
+<span class="hover:text-primary hover:scale-105 transition-all cursor-default">Delta Dental Premier</span>
+<span class="text-outline-variant">•</span>
+<span class="hover:text-primary hover:scale-105 transition-all cursor-default">Dean Health Plan</span>
+<span class="text-outline-variant">•</span>
+<span class="hover:text-primary hover:scale-105 transition-all cursor-default">Quartz Network</span>
+<span class="text-outline-variant">•</span>
+<span class="hover:text-primary hover:scale-105 transition-all cursor-default">Cigna Healthcare</span>
+<span class="text-outline-variant">•</span>
+<span class="hover:text-primary hover:scale-105 transition-all cursor-default">Ameritas</span>
+<span class="text-outline-variant">•</span>
+<span class="hover:text-primary hover:scale-105 transition-all cursor-default">CareCredit Accepted</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: THE NON-CORPORATE ADVANTAGE (WHY MADISON CHOOSES US) -->
+<section class="w-full py-20 bg-surface">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+<div class="reveal-on-scroll flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-surface-tint font-label-credential text-label-credential uppercase mb-3">
+          The Schenk-Atwood Standard
+        </div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 tracking-tight">
+          The Non-Corporate Dental Advantage
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Private, independent oral healthcare designed around conservative treatment, clinical ethics, and personal accountability.
+        </p>
+</div>
+<!-- 4-Pillar Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Pillar 1 -->
+<div class="reveal-on-scroll interactive-card flex flex-col p-8 rounded-2xl bg-surface-container-lowest shadow-sm border border-surface-container/50">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">gavel</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Zero Corporate Quotas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+            We are never owned by venture capital or corporate DSOs. No arbitrary treatment quotas, no aggressive upselling, and no pressure for treatments you do not require.
+          </p>
+<div class="mt-auto pt-4 flex items-center gap-1.5 text-secondary font-label-credential text-label-credential">
+<span class="material-symbols-outlined text-[16px]">thumb_up</span>
+<span class="">Praised on r/madisonwi</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="reveal-on-scroll interactive-card flex flex-col p-8 rounded-2xl bg-surface-container-lowest shadow-sm border border-surface-container/50">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-6">
+<span class="material-symbols-outlined text-[24px]">person_check</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Continuity of Care</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+            You see Dr. Scinico and his dedicated hygienic team at every routine checkup. No rotating associate dentists or confusing shift handoffs.
+          </p>
+<div class="mt-auto pt-4 flex items-center gap-1.5 text-secondary font-label-credential text-label-credential">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span class="">Same Doctor Every Visit</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="reveal-on-scroll interactive-card flex flex-col p-8 rounded-2xl bg-surface-container-lowest shadow-sm border border-surface-container/50">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-6">
+<span class="material-symbols-outlined text-[24px]">sentiment_satisfied</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Judgment-Free Safety</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+            Whether it has been six months or eight years since your last dental exam, our team provides calm reassurance, total discretion, and zero shaming.
+          </p>
+<div class="mt-auto pt-4 flex items-center gap-1.5 text-secondary font-label-credential text-label-credential">
+<span class="material-symbols-outlined text-[16px]">health_and_safety</span>
+<span class="">Gentle Psychological Pacing</span>
+</div>
+</div>
+<!-- Pillar 4 -->
+<div class="reveal-on-scroll interactive-card flex flex-col p-8 rounded-2xl bg-surface-container-lowest shadow-sm border border-surface-container/50">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-6">
+<span class="material-symbols-outlined text-[24px]">accessible</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Hassle-Free Arrival</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+            Enjoy dedicated off-street patient parking and a gentle rear ramped entrance on Winnebago St. Easy entry for wheelchairs, walkers, and strollers.
+          </p>
+<div class="mt-auto pt-4 flex items-center gap-1.5 text-secondary font-label-credential text-label-credential">
+<span class="material-symbols-outlined text-[16px]">local_parking</span>
+<span class="">Dedicated Rear Parking Lot</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: MEET DR. RICHARD ('RICK') SCINICO, DMD -->
+<section class="w-full py-20 bg-surface-bright" id="about-dr-scinico">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<!-- Doctor Image Column -->
+<div class="lg:col-span-5 relative reveal-on-scroll">
+<div class="relative rounded-3xl overflow-hidden shadow-2xl bg-surface-container-high interactive-card border border-surface-container">
+<img alt="Dr. Richard Scinico DMD, welcoming dentist with over 30 years of clinical practice in modern scrubs" class="w-full h-[520px] object-cover object-top transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYfAUPgIHVjduJzrLL8gL61N_dUIBWD-SCmfZjAXDiRiiSiMlGc0DsRFGNaZSPxCYP-mIU20ig4YZFcTAhYNC-yFFK5Gr0tUCXX4rMsMwbv2scO5_lAHjMRdX0o9NVtkZFUU5O5os7QgaRpegbusC5uZ4bEyDvrtbiSFt3NgK8NZ3dIANp1ouU1POJWWe4YAbuS1RK5mrLwp5EsBcrkDre-L-E69lC4suPocuJYOg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/75 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-surface-container-lowest/90 backdrop-blur-md border border-white/40">
+<div class="font-headline-sm text-headline-sm text-primary font-bold">Richard N. Scinico, DMD</div>
+<div class="font-body-sm text-body-sm text-surface-tint">Lead Clinician &amp; Practice Owner • 30+ Years</div>
+</div>
+</div>
+<!-- Credential Floating Ribbon -->
+<div class="animate-float absolute -bottom-4 -right-4 bg-primary text-on-primary px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-secondary/30">
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">military_tech</span>
+<div class="text-left">
+<div class="font-label-credential text-label-credential tracking-wider uppercase text-secondary-fixed">U.S. Navy Veteran</div>
+<div class="text-xs font-semibold">10-Yr Commissioned Officer</div>
+</div>
+</div>
+</div>
+<!-- Doctor Bio Column -->
+<div class="lg:col-span-7 flex flex-col items-start reveal-on-scroll">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-surface-tint font-label-credential text-label-credential uppercase mb-3">
+            Physician Leadership
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 tracking-tight">
+            Meet Dr. Richard ("Rick") Scinico, DMD
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+            "My goal is simple: listen closely to what you want, present honest diagnostic realities with zero pressure, and provide gentle, world-class dental care right here in Madison."
+          </p>
+<!-- Education & Service Timeline Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-8">
+<div class="p-4 rounded-xl bg-surface-container-low border border-surface-container/60 hover:border-secondary/40 transition-colors">
+<span class="material-symbols-outlined text-secondary text-[20px] mb-1">school</span>
+<div class="font-label-interactive text-label-interactive text-primary">Doctor of Dental Medicine</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Southern Illinois University School of Dental Medicine</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-surface-container/60 hover:border-secondary/40 transition-colors">
+<span class="material-symbols-outlined text-secondary text-[20px] mb-1">workspace_premium</span>
+<div class="font-label-interactive text-label-interactive text-primary">Postgraduate Esthetics &amp; Implants</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">University of Minnesota Dental School</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-surface-container/60 hover:border-secondary/40 transition-colors">
+<span class="material-symbols-outlined text-secondary text-[20px] mb-1">flag</span>
+<div class="font-label-interactive text-label-interactive text-primary">Naval Dental Corps (1995–2005)</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Ten years serving sailors and Marines across domestic and deployment stations</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-surface-container/60 hover:border-secondary/40 transition-colors">
+<span class="material-symbols-outlined text-secondary text-[20px] mb-1">military_tech</span>
+<div class="font-label-interactive text-label-interactive text-primary">Castle Connolly Top Dentist</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Peer-nominated excellence consecutively from 2022 to 2026</div>
+</div>
+</div>
+<!-- Community roots statement -->
+<div class="p-5 rounded-2xl bg-surface-container w-full mb-6 border border-surface-container-high">
+<div class="font-label-interactive text-label-interactive text-primary mb-1">Deep Madison Roots</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              When not at the Winnebago Street operatory, Rick is an active Madison neighbor, outdoorsman, and proud parent alongside his wife and family. He believes local private practice sustains community fabric.
+            </p>
+</div>
+<a class="btn-shimmer inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-interactive text-label-interactive transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg shadow-sm" href="#appointment-triage">
+<span class="">Schedule a Consultation with Dr. Scinico</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: COMPREHENSIVE CLINICAL CAPABILITIES -->
+<section class="w-full py-20 bg-surface" id="comprehensive-services">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+<div class="reveal-on-scroll flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-surface-tint font-label-credential text-label-credential uppercase mb-3">
+            In-House Clinical Scope
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+            Comprehensive Dental Services Under One Roof
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Combining decades of restorative surgical skill with advanced 3D volumetric diagnostics for precision and comfort.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Capability 1 -->
+<div class="reveal-on-scroll interactive-card group p-8 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col border border-surface-container/50">
+<div class="w-12 h-12 rounded-xl bg-surface-container group-hover:bg-secondary-container flex items-center justify-center text-secondary mb-6 transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-[26px]">view_in_ar</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">3D Volumetric Imaging &amp; Low-Dose X-Rays</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Sub-millimeter anatomical precision with ultra-low radiation. Detailed bone, nerve, and root scans captured in seconds right in our Madison suite.
+          </p>
+<div class="mt-auto flex items-center gap-2 font-label-interactive text-label-interactive text-secondary group-hover:translate-x-1 transition-transform">
+<span class="">Diagnostic Precision</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Capability 2 -->
+<div class="reveal-on-scroll interactive-card group p-8 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col border border-surface-container/50">
+<div class="w-12 h-12 rounded-xl bg-surface-container group-hover:bg-secondary-container flex items-center justify-center text-secondary mb-6 transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-[26px]">vital_signs</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Dental Implants &amp; Restorations</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Permanent, natural-feeling tooth replacements. Dr. Scinico plans and restores titanium implant abutments and high-strength custom crowns.
+          </p>
+<div class="mt-auto flex items-center gap-2 font-label-interactive text-label-interactive text-secondary group-hover:translate-x-1 transition-transform">
+<span class="">Tooth Replacement</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Capability 3 -->
+<div class="reveal-on-scroll interactive-card group p-8 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col border border-surface-container/50">
+<div class="w-12 h-12 rounded-xl bg-surface-container group-hover:bg-secondary-container flex items-center justify-center text-secondary mb-6 transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-[26px]">healing</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Gentle Root Canal &amp; Extractions</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Relieving acute pain and preserving your natural teeth. Advanced rotary instrumentation makes endodontic procedures quiet, fast, and tranquil.
+          </p>
+<div class="mt-auto flex items-center gap-2 font-label-interactive text-label-interactive text-secondary group-hover:translate-x-1 transition-transform">
+<span class="">Pain Relief &amp; Care</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Capability 4 -->
+<div class="reveal-on-scroll interactive-card group p-8 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col border border-surface-container/50">
+<div class="w-12 h-12 rounded-xl bg-surface-container group-hover:bg-secondary-container flex items-center justify-center text-secondary mb-6 transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-[26px]">sanitizer</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Periodontal Maintenance Therapy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Targeted ultrasonic cleanings, localized anti-microbial treatments, and non-surgical gum scaling designed to arrest bone loss and restore oral balance.
+          </p>
+<div class="mt-auto flex items-center gap-2 font-label-interactive text-label-interactive text-secondary group-hover:translate-x-1 transition-transform">
+<span class="">Gum Health Protocol</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Capability 5 -->
+<div class="reveal-on-scroll interactive-card group p-8 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col border border-surface-container/50">
+<div class="w-12 h-12 rounded-xl bg-surface-container group-hover:bg-secondary-container flex items-center justify-center text-secondary mb-6 transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-[26px]">arrow_back_ios_new</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Cosmetic Whitening &amp; Porcelain</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Custom-tinted veneers, lifelike tooth-colored bonding, and medical-grade enamel whitening tailored to your natural facial proportions.
+          </p>
+<div class="mt-auto flex items-center gap-2 font-label-interactive text-label-interactive text-secondary group-hover:translate-x-1 transition-transform">
+<span class="">Esthetic Design</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Capability 6 -->
+<div class="reveal-on-scroll interactive-card group p-8 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col border border-surface-container/50">
+<div class="w-12 h-12 rounded-xl bg-surface-container group-hover:bg-secondary-container flex items-center justify-center text-secondary mb-6 transition-all duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-[26px]">shield</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">TMJ Therapy &amp; Occlusal Guards</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Stop morning jaw fatigue, tension headaches, and nocturnal teeth grinding. Custom digital-fit mouthguards for athletic and sleep protection.
+          </p>
+<div class="mt-auto flex items-center gap-2 font-label-interactive text-label-interactive text-secondary group-hover:translate-x-1 transition-transform">
+<span class="">Bite Protection</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: IN-HOUSE MEMBERSHIP PROGRAM (NO INSURANCE? NO PROBLEM) -->
+<section class="w-full py-20 bg-surface-bright" id="membership-plans">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+<div class="reveal-on-scroll flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-primary font-label-credential text-label-credential uppercase mb-3">
+          Direct-to-Patient Membership
+        </div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 tracking-tight">
+          No Dental Insurance? No Problem.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Receive comprehensive preventative care and discounts on all restorative services. Zero insurance middlemen, no waiting periods, no deductibles, and no maximum annual caps.
+        </p>
+</div>
+<!-- Feature Pill highlights -->
+<div class="reveal-on-scroll flex flex-wrap items-center justify-center gap-4 mb-12">
+<div class="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full font-label-credential text-label-credential text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span class="">No Annual Maximums</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full font-label-credential text-label-credential text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span class="">No Waiting Periods</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full font-label-credential text-label-credential text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span class="">No Deductibles</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full font-label-credential text-label-credential text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span class="">No Pre-Existing Exclusions</span>
+</div>
+</div>
+<!-- 3 Tier Pricing Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+<!-- Tier 1: Child Plan -->
+<div class="reveal-on-scroll interactive-card p-8 rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col border border-surface-container/60">
+<div class="font-label-credential text-label-credential uppercase tracking-wider text-surface-tint mb-2">Ages 13 &amp; Under</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-1">Child Wellness Plan</h3>
+<div class="flex items-baseline gap-1 my-4">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">$429</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ calendar year</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+            Complete pediatric preventative dentistry tailored to growing smiles.
+          </p>
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-primary mb-8">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>2 Routine Professional Cleanings</strong></span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>2 Comprehensive Exams</strong> with Dr. Scinico</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>2 Topical Fluoride Treatments</strong></span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>1 Emergency Exam &amp; X-ray</strong> included</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>15% Off</strong> all additional fillings &amp; treatments</span>
+</li>
+</ul>
+<a class="mt-auto block w-full text-center py-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-interactive text-label-interactive transition-all duration-200 hover:-translate-y-0.5" href="#appointment-triage">
+            Enroll in Child Plan
+          </a>
+</div>
+<!-- Tier 2: Adult Plan (Popular) -->
+<div class="reveal-on-scroll interactive-card p-8 rounded-3xl bg-surface-container-low shadow-md flex flex-col relative scale-[1.02] border-2 border-primary-container">
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-on-primary font-label-credential text-label-credential uppercase shadow-sm">
+            Most Popular Choice
+          </div>
+<div class="font-label-credential text-label-credential uppercase tracking-wider text-surface-tint mb-2">Ages 14 &amp; Above</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-1">Adult Preventative Plan</h3>
+<div class="flex items-baseline gap-1 my-4">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">$475</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ calendar year</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+            Comprehensive year-round maintenance for adults with standard oral health.
+          </p>
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-primary mb-8">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>2 Routine Preventative Cleanings</strong></span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>2 Doctor Examinations</strong></span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>Bitewing X-Rays</strong> &amp; oral cancer screenings</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>1 Emergency Exam &amp; Diagnostics</strong></span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>15% Off</strong> all in-house crowns, fillings &amp; night guards</span>
+</li>
+</ul>
+<a class="btn-shimmer mt-auto block w-full text-center py-3.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-interactive text-label-interactive transition-all duration-300 shadow-md hover:-translate-y-0.5 hover:shadow-cyan-900/20" href="#appointment-triage">
+            Enroll in Adult Plan
+          </a>
+</div>
+<!-- Tier 3: Periodontal Plan -->
+<div class="reveal-on-scroll interactive-card p-8 rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col border border-surface-container/60">
+<div class="font-label-credential text-label-credential uppercase tracking-wider text-surface-tint mb-2">Targeted Gum Care</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold mb-1">Periodontal Health Plan</h3>
+<div class="flex items-baseline gap-1 my-4">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">$795</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ calendar year</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+            For patients managing active or arrested periodontal disease.
+          </p>
+<ul class="flex flex-col gap-3 font-body-sm text-body-sm text-primary mb-8">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>3–4 Periodontal Maintenance Cleanings</strong>/yr</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>2 Comprehensive Periodontal Exams</strong></span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>All Routine Digital X-Rays</strong> included</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>1 Emergency Exam &amp; X-ray</strong></span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check</span>
+<span class=""><strong>15% Off</strong> all periodontal scaling &amp; restorations</span>
+</li>
+</ul>
+<a class="mt-auto block w-full text-center py-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-interactive text-label-interactive transition-all duration-200 hover:-translate-y-0.5" href="#appointment-triage">
+            Enroll in Perio Plan
+          </a>
+</div>
+</div>
+<!-- Interactive FAQ Accordion -->
+<div class="mt-16 max-w-3xl mx-auto reveal-on-scroll">
+<div class="text-center mb-8">
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Frequently Asked Questions</h3>
+<p class="text-on-surface-variant font-body-sm mt-1">Clear answers regarding membership, insurance, and scheduling.</p>
+</div>
+<div class="flex flex-col gap-3">
+<!-- FAQ 1 -->
+<div class="faq-item rounded-2xl bg-surface-container-lowest border border-surface-container overflow-hidden transition-all duration-200">
+<button class="faq-trigger w-full px-6 py-4 flex items-center justify-between text-left text-primary font-label-interactive hover:bg-surface-container-low transition-colors" onclick="toggleFaq(this)" type="button">
+<span>How does the in-house membership compare to standard insurance?</span>
+<span class="material-symbols-outlined text-secondary transition-transform duration-300">expand_more</span>
+</button>
+<div class="faq-content hidden px-6 pb-5 text-on-surface-variant font-body-sm transition-all duration-300">
+        There are zero deductibles, zero waiting periods, and no annual maximum claims caps. You pay an upfront annual fee that covers routine cleanings and exams, plus 15% off all restorative treatments without needing insurance approvals.
+      </div>
+</div>
+<!-- FAQ 2 -->
+<div class="faq-item rounded-2xl bg-surface-container-lowest border border-surface-container overflow-hidden transition-all duration-200">
+<button class="faq-trigger w-full px-6 py-4 flex items-center justify-between text-left text-primary font-label-interactive hover:bg-surface-container-low transition-colors" onclick="toggleFaq(this)" type="button">
+<span>What if I have an emergency on a weekend or Friday?</span>
+<span class="material-symbols-outlined text-secondary transition-transform duration-300">expand_more</span>
+</button>
+<div class="faq-content hidden px-6 pb-5 text-on-surface-variant font-body-sm transition-all duration-300">
+        Call our main office number right away. Existing patients with acute pain or trauma will be routed to Dr. Scinico's emergency line for prompt instructions, prescription support, or urgent triage.
+      </div>
+</div>
+<!-- FAQ 3 -->
+<div class="faq-item rounded-2xl bg-surface-container-lowest border border-surface-container overflow-hidden transition-all duration-200">
+<button class="faq-trigger w-full px-6 py-4 flex items-center justify-between text-left text-primary font-label-interactive hover:bg-surface-container-low transition-colors" onclick="toggleFaq(this)" type="button">
+<span>Can I park directly at the building on Winnebago Street?</span>
+<span class="material-symbols-outlined text-secondary transition-transform duration-300">expand_more</span>
+</button>
+<div class="faq-content hidden px-6 pb-5 text-on-surface-variant font-body-sm transition-all duration-300">
+        Yes! We have a private, reserved off-street parking lot located directly behind 2037 Winnebago St, with a barrier-free ADA ramp leading directly into Suite 1.
+      </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: APPOINTMENT TRIAGE & REQUEST SYSTEM -->
+<section class="w-full py-20 bg-surface" id="appointment-triage">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Side: Schedule Context & Office Details -->
+<div class="lg:col-span-5 flex flex-col reveal-on-scroll">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-surface-tint font-label-credential text-label-credential uppercase mb-3">
+            Direct Office Booking
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 tracking-tight">
+            Request an Appointment
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+            Tell us your preferred time and clinical needs. Our East Madison coordination team will reach out within 2–4 business hours to finalize your visit.
+          </p>
+<!-- Office Protocol Cards -->
+<div class="flex flex-col gap-4">
+<div class="interactive-card flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest shadow-sm border border-surface-container/60">
+<span class="material-symbols-outlined text-secondary text-[24px] shrink-0 mt-1">alarm</span>
+<div>
+<div class="font-label-interactive text-label-interactive text-primary">Early Bird Appointments: 7:30 AM</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">We open at 7:30 AM Monday through Thursday so you don't miss work or classes.</div>
+</div>
+</div>
+<div class="interactive-card flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest shadow-sm border border-surface-container/60">
+<span class="material-symbols-outlined text-secondary text-[24px] shrink-0 mt-1">pin_drop</span>
+<div>
+<div class="font-label-interactive text-label-interactive text-primary">Winnebago St Location</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">2037 Winnebago St, Suite 1. Free private parking lot directly behind the clinic.</div>
+</div>
+</div>
+<div class="interactive-card flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest shadow-sm border border-surface-container/60">
+<span class="material-symbols-outlined text-secondary text-[24px] shrink-0 mt-1">phone_in_talk</span>
+<div>
+<div class="font-label-interactive text-label-interactive text-primary">Prefer to Call Directly?</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Our team answers right away: <a class="text-primary font-bold hover:text-secondary hover:underline transition-colors" href="tel:6082496616">(608) 249-6616</a></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Interactive Triage Form -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-8 lg:p-10 rounded-3xl shadow-md border border-surface-container/70 reveal-on-scroll">
+<form class="flex flex-col gap-6" id="triage-form" onsubmit="handleFormSubmit(event)">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-interactive text-label-interactive text-primary" for="fullName">Full Name *</label>
+<input class="input-focus-glow px-4 py-3 rounded-lg bg-surface border-0 text-primary font-body-md text-body-md" id="fullName" placeholder="Jane Doe" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-interactive text-label-interactive text-primary" for="phoneNum">Phone Number *</label>
+<input class="input-focus-glow px-4 py-3 rounded-lg bg-surface border-0 text-primary font-body-md text-body-md" id="phoneNum" placeholder="(608) 555-0123" required="" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-interactive text-label-interactive text-primary" for="emailAddr">Email Address *</label>
+<input class="input-focus-glow px-4 py-3 rounded-lg bg-surface border-0 text-primary font-body-md text-body-md" id="emailAddr" placeholder="jane@example.com" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-interactive text-label-interactive text-primary" for="patientType">Patient Status</label>
+<select class="input-focus-glow px-4 py-3 rounded-lg bg-surface border-0 text-primary font-body-md text-body-md" id="patientType">
+<option>New Patient (First Visit)</option>
+<option>Returning Patient</option>
+<option>Seeking Second Opinion</option>
+<option>Dental Emergency / Acute Pain</option>
+</select>
+</div>
+</div>
+<!-- Preferred Time of Day Radio Pods -->
+<div class="flex flex-col gap-2">
+<label class="font-label-interactive text-label-interactive text-primary">Preferred Time Window</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="timeSlot" type="radio" value="early-morning"/>
+<div class="px-3 py-2.5 rounded-lg bg-surface text-center peer-checked:bg-primary peer-checked:text-on-primary transition-all font-body-sm text-body-sm text-primary hover:bg-surface-container">
+                    Early 7:30 AM
+                  </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="timeSlot" type="radio" value="late-morning"/>
+<div class="px-3 py-2.5 rounded-lg bg-surface text-center peer-checked:bg-primary peer-checked:text-on-primary transition-all font-body-sm text-body-sm text-primary hover:bg-surface-container">
+                    10:00 AM - 12:00 PM
+                  </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="timeSlot" type="radio" value="early-afternoon"/>
+<div class="px-3 py-2.5 rounded-lg bg-surface text-center peer-checked:bg-primary peer-checked:text-on-primary transition-all font-body-sm text-body-sm text-primary hover:bg-surface-container">
+                    1:00 PM - 3:00 PM
+                  </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="timeSlot" type="radio" value="late-afternoon"/>
+<div class="px-3 py-2.5 rounded-lg bg-surface text-center peer-checked:bg-primary peer-checked:text-on-primary transition-all font-body-sm text-body-sm text-primary hover:bg-surface-container">
+                    3:30 PM - 5:00 PM
+                  </div>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-interactive text-label-interactive text-primary" for="clinicalReason">Reason for Visit &amp; Any Notes</label>
+<textarea class="input-focus-glow px-4 py-3 rounded-lg bg-surface border-0 text-primary font-body-md text-body-md" id="clinicalReason" placeholder="Routine checkup, broken tooth, toothache, gum health consultation, cosmetic consultation..." rows="3"></textarea>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+<span class="text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">lock</span>
+                Confidential &amp; HIPAA Compliant
+              </span>
+<button class="btn-shimmer w-full sm:w-auto px-8 py-3.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-interactive text-label-interactive transition-all duration-300 shadow-md hover:-translate-y-0.5 hover:shadow-cyan-900/20" type="submit">
+                Submit Appointment Request
+              </button>
+</div>
+<!-- Confirmation message placeholder -->
+<div class="hidden p-4 rounded-xl bg-surface-container text-primary font-body-sm text-body-sm flex items-center gap-3 border border-secondary/30 transition-all duration-300" id="confirmation-msg">
+<span class="material-symbols-outlined text-secondary text-[22px]">check_circle</span>
+<span class="">Thank you! Your request has been received. Our Madison care team will contact you shortly to confirm your slot.</span>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 7: REAL PATIENT REVIEWS & MADISON COMMUNITY SENTIMENT -->
+<section class="w-full py-20 bg-surface-bright" id="patient-reviews">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+<div class="reveal-on-scroll flex flex-col items-center text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-surface-tint font-label-credential text-label-credential uppercase mb-3">
+          Verified Patient Experiences
+        </div>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mb-2">
+          "The most honest, gentle dentist in Madison."
+        </h2>
+<div class="flex items-center gap-1 text-secondary mt-2">
+<span class="material-symbols-outlined text-[20px]">star</span>
+<span class="material-symbols-outlined text-[20px]">star</span>
+<span class="material-symbols-outlined text-[20px]">star</span>
+<span class="material-symbols-outlined text-[20px]">star</span>
+<span class="material-symbols-outlined text-[20px]">star</span>
+<span class="font-label-interactive text-label-interactive text-primary ml-2">4.9 / 5.0 (Google, DenScore &amp; Reddit)</span>
+</div>
+</div>
+<!-- Testimonial Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Review 1 -->
+<div class="reveal-on-scroll interactive-card p-8 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between border border-surface-container/50">
+<div>
+<div class="flex items-center gap-1 text-secondary mb-4">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">
+              "I had put off the dentist for four years due to extreme anxiety. Dr. Rick Scinico was completely non-judgmental, gentle, and explained every single step before touching anything. The quiet operatory with the garden view put me immediately at ease."
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-4 border-t border-surface-container">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary">
+              EM
+            </div>
+<div>
+<div class="font-label-interactive text-label-interactive text-primary">Elena M.</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Near-East Side Neighbor • 3 Years</div>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="reveal-on-scroll interactive-card p-8 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between border border-surface-container/50">
+<div>
+<div class="flex items-center gap-1 text-secondary mb-4">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">
+              "A corporate dental chain told me I needed $3,500 in deep cleanings and crowns immediately. I went to Dr. Scinico for a second opinion on recommendation from Reddit. He examined me, showed me the digital x-rays, and told me honestly that everything was stable. Truly integrity-first care."
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-4 border-t border-surface-container">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary">
+              DK
+            </div>
+<div>
+<div class="font-label-interactive text-label-interactive text-primary">David K.</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Atwood Resident • Second Opinion Patient</div>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="reveal-on-scroll interactive-card p-8 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between border border-surface-container/50">
+<div>
+<div class="flex items-center gap-1 text-secondary mb-4">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">
+              "Our whole family sees Dr. Rick — from our 7-year-old daughter to my 72-year-old mother. The early 7:30 AM slots allow me to finish my cleaning and get to work at the Capitol without taking PTO. Dedicated parking in the rear is a huge bonus on Winnebago."
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-4 border-t border-surface-container">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary">
+              ST
+            </div>
+<div>
+<div class="font-label-interactive text-label-interactive text-primary">Sarah &amp; Mark T.</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Family Patients • 8 Years</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 8: LOCATION & ACCESSIBILITY DETAILS -->
+<section class="w-full py-20 bg-surface">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+<div class="rounded-3xl bg-surface-container-lowest p-8 lg:p-12 shadow-sm border border-surface-container/50 reveal-on-scroll">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Clinic Info & Direction Notes -->
+<div class="lg:col-span-6 flex flex-col">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-surface-tint font-label-credential text-label-credential uppercase mb-3">
+              Easy Neighborhood Access
+            </div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 tracking-tight">
+              Located in Madison’s Schenk-Atwood Neighborhood
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+              Conveniently situated on historic Winnebago Street, just minutes from the Capitol Isthmus, East Washington Avenue, and Lake Monona.
+            </p>
+<div class="flex flex-col gap-4 mb-8">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">location_on</span>
+<div>
+<strong class="text-primary font-label-interactive">Address:</strong>
+<div class="text-on-surface-variant font-body-md text-body-md">2037 Winnebago St, Suite 1, Madison, WI 53704</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">local_parking</span>
+<div>
+<strong class="text-primary font-label-interactive">Dedicated Rear Parking Lot:</strong>
+<div class="text-on-surface-variant font-body-md text-body-md">Turn directly behind the building for dedicated reserved patient parking spaces.</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">accessible</span>
+<div>
+<strong class="text-primary font-label-interactive">Ramped Rear Entrance:</strong>
+<div class="text-on-surface-variant font-body-md text-body-md">Full barrier-free ADA ramp access from the parking lot straight into Suite 1. Phone ahead if you would like door-side escort assistance!</div>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-interactive text-label-interactive transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md" href="tel:6082496616">
+<span class="material-symbols-outlined text-[18px]">phone</span>
+<span class="">(608) 249-6616</span>
+</a>
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-container text-primary hover:bg-surface-container-high font-label-interactive text-label-interactive transition-all duration-300 hover:-translate-y-0.5" href="#appointment-triage">
+<span class="">Book First Visit</span>
+</a>
+</div>
+</div>
+<!-- Static Map Card -->
+<div class="lg:col-span-6">
+<div class="w-full h-80 lg:h-96 rounded-2xl shadow-inner bg-cover bg-center overflow-hidden hover:scale-[1.01] transition-transform duration-500" data-location="2037 Winnebago St, Madison, WI" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1x7BvQgPK7bfIL3xjoItrQYe2lY-vr8upWTLpOWnBl8mAXzLWPeq5AjBpteNaN82nDeJpZTifn4tRfexeU7LbWBYV_ILMLRbEaLP6zuu_-P1BHc0aSDIubp17RhfekDC0pS0G3HDdEAmXnS41982dSWFDTM7JOHAEKR4DngMCxJsWQfiURvnQhmfdkaa9Oj-KduncCDh7ipYmWeAzF-4cMBlaolSUK7-RpMjQW0g')">
+</div>
+<div class="mt-3 flex items-center justify-between text-xs text-on-surface-variant px-1">
+<span class="">Schenk-Atwood / Near-East District</span>
+<span class="">Coordinates: 43.0886° N, 89.3512° W</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.02)] pt-space-2xl pb-space-xl"><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter lg:gap-space-xl mb-space-2xl"><div class="lg:col-span-4 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="Scinico Family Dental Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhw0ZLlYlcxRyoD32hlKcXI314YbRX86auf1wMA5pEi3jrLEyOycPDfd78fUaypJRdlRRSxbhLZn4NEyR81eLTc2DfIT2s0hvT10Vje9gpOAWDWVsSnFIseUPZUOD08TDKXWt0vAiuoPlcljQs0MHu1cjW1gel127NpGtlKKTk6gsCvRArWF99iIGnohvkaY99GcfXfd8980bp6OoOqqNUa0qz0W8Cs0ybyNKRk2Q"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary font-bold">Scinico Family Dental</span><span class="font-label-credential text-label-credential uppercase text-surface-tint">Madison, Wisconsin</span></div></div><p class="font-body-md text-body-md text-on-surface-variant max-w-md">Preserving a continuous 50-year heritage of exceptional, gentle oral healthcare on Winnebago Street. High-trust cosmetic, restorative, and family dentistry led with clinical excellence and military precision.</p><div class="flex flex-wrap gap-2 pt-space-xs"><div class="flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full shadow-[0_2px_6px_-1px_rgba(13,59,76,0.04)] hover:shadow transition-shadow"><span class="material-symbols-outlined text-primary text-[18px]">military_tech</span><span class="font-label-credential text-label-credential text-primary">Navy Veteran Care</span></div><div class="flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full shadow-[0_2px_6px_-1px_rgba(13,59,76,0.04)] hover:shadow transition-shadow"><span class="material-symbols-outlined text-surface-tint text-[18px]">verified</span><span class="font-label-credential text-label-credential text-primary">Castle Connolly Top Doctor</span></div></div></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><h3 class="font-label-interactive text-label-interactive uppercase text-primary tracking-wider">Practice &amp; Care</h3><ul class="flex flex-col gap-2.5 font-body-sm text-body-sm text-on-surface-variant"><li class=""><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block transition-transform" data-path="about-dr-scinico" href="#">About Dr. Scinico &amp; Team</a></li><li class=""><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block transition-transform" data-path="comprehensive-services" href="#">Preventative &amp; Family Care</a></li><li class=""><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block transition-transform" data-path="comprehensive-services" href="#">Cosmetic &amp; Restorative Dentistry</a></li><li class=""><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block transition-transform" data-path="3d-tech-and-facility" href="#">3D Cone Beam CT &amp; Intraoral Tech</a></li><li class=""><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block transition-transform" data-path="membership-plans" href="#">In-House Dental Membership</a></li><li class=""><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block transition-transform" data-path="insurance" href="#">Financing &amp; Insurance Options</a></li></ul></div><div class="lg:col-span-2 flex flex-col gap-space-sm"><h3 class="font-label-interactive text-label-interactive uppercase text-primary tracking-wider">Patient Resources</h3><ul class="flex flex-col gap-2.5 font-body-sm text-body-sm text-on-surface-variant"><li class=""><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block transition-transform" data-path="patient-portal" href="#">Secure Patient Portal</a></li><li class=""><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block transition-transform" data-path="new-patient-forms" href="#">Online Intake Forms</a></li><li class=""><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block transition-transform" data-path="patient-stories" href="#">Verified Patient Reviews</a></li><li class=""><a class="hover:text-primary transition-colors text-error font-label-interactive hover:translate-x-1 inline-block transition-transform" data-path="emergency-care" href="#">Dental Emergency Guide</a></li><li class=""><a class="hover:text-primary transition-colors hover:translate-x-1 inline-block transition-transform" data-path="post-op-care" href="#">Post-Operative Instructions</a></li></ul></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><h3 class="font-label-interactive text-label-interactive uppercase text-primary tracking-wider">East Madison Location</h3><div class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant"><p class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-surface-tint shrink-0 mt-0.5">pin_drop</span><span class="">2037 Winnebago St, Suite 1<br/>Madison, WI 53704</span></p><p class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-surface-tint shrink-0">call</span><span class="">(608) 249-6616</span></p><p class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-surface-tint shrink-0">mail</span><span class="">care@scinicodental.com</span></p></div><div class="bg-surface-container-lowest p-space-md rounded-xl mt-space-xs border border-surface-container/60 hover:shadow-md transition-shadow"><span class="font-label-credential text-label-credential text-error block mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">emergency</span>Urgent Assistance</span><p class="font-body-sm text-body-sm text-on-surface-variant">Existing patients with severe toothache or trauma: call our direct office line immediately for emergency on-call routing.</p></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant/80"><div class="flex flex-col gap-1 text-center md:text-left"><p class="">© 2025 Scinico Family Dental. All rights reserved. 50 Years of East Side Heritage.</p><p class="text-xs text-outline">Accessibility Protocol: We comply with ADA Title III and WCAG 2.1 AA standards. Dedicated wheelchair access &amp; reserved clinic parking available.</p></div><div class="flex items-center gap-space-md text-xs"><a class="hover:text-primary transition-colors" data-path="privacy-policy" href="#">HIPAA &amp; Privacy Policy</a><span class="text-outline-variant/60">•</span><a class="hover:text-primary transition-colors" data-path="terms-of-care" href="#">Terms of Care</a><span class="text-outline-variant/60">•</span><a class="hover:text-primary transition-colors" data-path="site-map" href="#">Sitemap</a></div></div></div></footer>
+<script>
+// Micro-interactions & Scroll Animation Trigger
+document.addEventListener('DOMContentLoaded', () => {
+  // Intersection Observer for staggered scroll reveals
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -60px 0px',
+      threshold: 0.12
+    });
+
+    revealElements.forEach((el, index) => {
+      // Optional slight staggered delay for grid children
+      el.style.transitionDelay = `${(index % 4) * 0.08}s`;
+      revealObserver.observe(el);
+    });
+  } else {
+    revealElements.forEach(el => el.classList.add('is-visible'));
+  }
+});
+
+// Accordion toggle helper
+function toggleFaq(btn) {
+  const content = btn.nextElementSibling;
+  const chevron = btn.querySelector('.material-symbols-outlined');
+  const isExpanded = !content.classList.contains('hidden');
+  
+  if (isExpanded) {
+    content.classList.add('hidden');
+    chevron.style.transform = 'rotate(0deg)';
+  } else {
+    content.classList.remove('hidden');
+    chevron.style.transform = 'rotate(180deg)';
+  }
+}
+
+// Form submission handler with visual state transition
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const confirmationMsg = document.getElementById('confirmation-msg');
+  if (confirmationMsg) {
+    confirmationMsg.classList.remove('hidden');
+    confirmationMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  form.reset();
+}
+</script>
+</body></html>

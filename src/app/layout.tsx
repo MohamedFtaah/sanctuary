@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { clinicJsonLd } from "@/lib/seo-schema";
@@ -119,6 +120,70 @@ export default function RootLayout({
         <FloatingEmergencyFab />
 
         <FooterSection />
+
+        {/* CRM Prototype Safe Analytics Tracker (Zero-Spam & Beacon Powered) */}
+        <Script
+          id="crm-analytics-tracker"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var leadId = urlParams.get('ref');
+  if (!leadId) return;
+
+  var timeSpent = 0;
+  var timer = setInterval(function() { timeSpent += 5; }, 5000);
+
+  function sendTelemetry(clickedBooking, clickedWhatsApp) {
+    var payload = JSON.stringify({
+      leadId: leadId,
+      timeSpentSeconds: timeSpent,
+      clickedBooking: Boolean(clickedBooking),
+      clickedWhatsApp: Boolean(clickedWhatsApp),
+      pageUrl: window.location.href,
+      referrer: document.referrer || ''
+    });
+
+    var endpoint = 'https://involved-nerti-o0sans0o-a85dfacc.apps.mistral.run/api/v1/webhooks/prototype-visit';
+
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(endpoint, payload);
+    } else {
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true
+      });
+    }
+  }
+
+  // تتبع النقرات على أزرار الحجز والواتساب تلقائياً
+  window.addEventListener('click', function(e) {
+    var target = e.target.closest('a, button');
+    if (!target) return;
+    var href = (target.getAttribute('href') || '').toLowerCase();
+    var text = (target.innerText || '').toLowerCase();
+
+    if (href.includes('wa.me') || href.includes('whatsapp') || text.includes('واتساب') || text.includes('whatsapp')) {
+      sendTelemetry(false, true);
+    } else if (href.includes('calendly') || href.includes('cal.com') || href.includes('booking') || text.includes('احجز') || text.includes('book') || text.includes('موعد')) {
+      sendTelemetry(true, false);
+    }
+  });
+
+  // إرسال مدة المكوث عند مغادرة الصفحة أو إغلاقها
+  window.addEventListener('beforeunload', function() {
+    sendTelemetry(false, false);
+  });
+  window.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') {
+      sendTelemetry(false, false);
+    }
+  });
+})();`,
+          }}
+        />
       </body>
     </html>
   );

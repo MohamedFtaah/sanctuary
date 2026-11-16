@@ -56,7 +56,7 @@ export function TriageForm() {
             <Input
               id="phoneNumber"
               type="tel"
-              placeholder="(608) 555-0123"
+              placeholder="+44 20 7946 0123"
               {...register("phoneNumber")}
               error={errors.phoneNumber?.message}
             />
@@ -164,7 +164,7 @@ export function TriageForm() {
             htmlFor="consentAcknowledged"
             className="text-xs text-on-surface-variant font-body-sm leading-relaxed cursor-pointer select-none"
           >
-            I understand that submitting this form requests an appointment window. The Scinico Dental team will contact me to confirm the date and time.
+            I understand that submitting this form requests an appointment window. The private clinical team will contact me to confirm the date and time.
           </label>
         </div>
         {errors.consentAcknowledged && (

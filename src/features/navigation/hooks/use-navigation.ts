@@ -11,7 +11,8 @@ export function useNavigation() {
       setIsScrolled(window.scrollY > 20);
 
       const sections = [
-        "about-dr-scinico",
+        "about-doctor",
+        "services",
         "comprehensive-services",
         "membership-plans",
         "appointment-triage",

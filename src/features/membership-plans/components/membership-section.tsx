@@ -17,9 +17,9 @@ export function MembershipSection() {
     >
       <Container>
         <SectionHeader
-          badge="Direct-to-Patient Membership"
-          title="No Dental Insurance? No Problem."
-          description="Receive comprehensive preventative care and discounts on all restorative services. Zero insurance middlemen, no waiting periods, no deductibles, and no maximum annual caps."
+          badge="Private Care Plans"
+          title="Direct Private Membership & Care Plans"
+          description="Enjoy priority consultation access, comprehensive preventive maintenance, and exclusive savings across all aesthetic and restorative treatments with zero insurance bureaucracy."
           badgeVariant="cyan"
         />
 

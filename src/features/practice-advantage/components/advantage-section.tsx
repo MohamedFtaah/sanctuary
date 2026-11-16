@@ -6,18 +6,28 @@ import { SectionHeader } from "@/components/common/section-header";
 import { AdvantageCard } from "./advantage-card";
 import { ADVANTAGES_DATA } from "../constants/advantage-data";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 
 export function PracticeAdvantageSection() {
   const containerRef = useScrollReveal();
+  const { isDoctor, doctorLastName, clinicName, city } = useLeadProfile();
+
+  const title = isDoctor
+    ? `The Private Clinical Advantage with Dr. ${doctorLastName}`
+    : `The Private Practice Advantage at ${clinicName}`;
+
+  const description = isDoctor
+    ? `Independent, bespoke cosmetic oral healthcare in ${city} designed around conservative treatment, aesthetic precision, and direct specialist accountability.`
+    : `Premier private healthcare in ${city} engineered around clinical ethics, sub-second patient experience, and transformative smile architecture.`;
 
   return (
     <section className="w-full py-20 bg-surface border-b border-surface-container/60">
       <Container>
         <div ref={containerRef}>
           <SectionHeader
-            badge="The Schenk-Atwood Standard"
-            title="The Non-Corporate Dental Advantage"
-            description="Private, independent oral healthcare designed around conservative treatment, clinical ethics, and personal accountability."
+            badge="The UK Private Dental Standard"
+            title={title}
+            description={description}
             badgeVariant="secondary"
           />
 

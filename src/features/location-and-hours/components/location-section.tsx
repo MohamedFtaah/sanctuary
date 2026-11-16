@@ -7,9 +7,19 @@ import { OfficeDetailsCard } from "./office-details-card";
 import { HoursScheduleList } from "./hours-schedule-list";
 import { MapEmbedCard } from "./map-embed-card";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 
 export function LocationSection() {
   const containerRef = useScrollReveal();
+  const { isDoctor, doctorLastName, clinicName, city } = useLeadProfile();
+
+  const title = isDoctor
+    ? `Dr. ${doctorLastName} Private Practice in ${city}`
+    : `Centrally Located in ${city} at ${clinicName}`;
+
+  const description = isDoctor
+    ? `Discreet, private cosmetic suites in prime ${city} with swift transport connections, level access, and dedicated personal care.`
+    : `Modern private healthcare facility in central ${city} offering sub-second booking, on-site 3D diagnostics, and convenient access.`;
 
   return (
     <section
@@ -19,9 +29,9 @@ export function LocationSection() {
       <Container>
         <div ref={containerRef}>
           <SectionHeader
-            badge="Easy Neighborhood Access"
-            title="Located in Madison’s Schenk-Atwood Neighborhood"
-            description="Conveniently situated on historic Winnebago Street, just minutes from the Capitol Isthmus, East Washington Avenue, and Lake Monona."
+            badge="Prime Location & Access"
+            title={title}
+            description={description}
             badgeVariant="secondary"
           />
 

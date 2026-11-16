@@ -1,18 +1,29 @@
+"use client";
+
 import * as React from "react";
 import { Navigation, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 
 export function MapEmbedCard() {
-  const googleMapsUrl =
-    "https://www.google.com/maps/dir/?api=1&destination=2037+Winnebago+St+Suite+1+Madison+WI+53704";
+  const { city, isDoctor, doctorLastName, clinicName } = useLeadProfile();
+
+  const query = encodeURIComponent(
+    isDoctor
+      ? `Dr ${doctorLastName} Aesthetic Dentistry ${city} UK`
+      : `${clinicName} ${city} UK`
+  );
+
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
+  const embedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(city + "%2C%20UK")}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <div className="flex flex-col rounded-2xl border border-surface-container/70 bg-surface-container-lowest overflow-hidden shadow-sm">
       <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-surface-container">
         {/* Interactive Google Maps Embed iframe with lazy loading */}
         <iframe
-          title="Scinico Family Dental Location Map"
-          src="https://maps.google.com/maps?q=2037%20Winnebago%20St%2C%20Madison%2C%20WI%2053704&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          title={`${isDoctor ? `Dr. ${doctorLastName}` : clinicName} Location Map`}
+          src={embedUrl}
           width="100%"
           height="100%"
           style={{ border: 0 }}
@@ -25,10 +36,10 @@ export function MapEmbedCard() {
       <div className="p-5 flex flex-wrap items-center justify-between gap-3 bg-surface-container/40 border-t border-surface-container">
         <div>
           <span className="text-xs font-bold text-primary block">
-            Near-East Madison Neighborhood
+            Central {city} Location
           </span>
           <span className="text-[11px] text-on-surface-variant block">
-            Minutes from Capitol Square &amp; Monona Terrace
+            Prime private healthcare suites with accessible transport connections
           </span>
         </div>
 

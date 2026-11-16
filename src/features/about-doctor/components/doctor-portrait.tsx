@@ -3,10 +3,29 @@
 import * as React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { DOCTOR_DATA } from "../constants/doctor-data";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 
 export function DoctorPortrait() {
+  const { isDoctor, name, doctorLastName, clinicName, city } = useLeadProfile();
+
+  const formattedDoctorName = (name || doctorLastName || "").trim();
+  const portraitName = isDoctor
+    ? formattedDoctorName.startsWith("Dr.")
+      ? formattedDoctorName
+      : `Dr. ${formattedDoctorName}`
+    : clinicName;
+  const portraitRole = isDoctor
+    ? `Aesthetic Dentistry Specialist • ${city}, UK`
+    : `Multidisciplinary Clinical Team • ${city}, UK`;
+
+  const portraitBadge = isDoctor
+    ? "GDC Registered Specialist"
+    : "Premier Private Practice";
+
+  const floatingTitle = isDoctor ? "Private Practice" : "Clinical Excellence";
+  const floatingSubtitle = `${city}, United Kingdom`;
+
   return (
     <div className="relative w-full max-w-md mx-auto lg:max-w-none">
       <motion.div
@@ -17,7 +36,11 @@ export function DoctorPortrait() {
         <div className="relative aspect-[4/5] w-full overflow-hidden">
           <Image
             src="/images/dr-scinico.jpg"
-            alt="Dr. Richard Scinico DMD, welcoming dentist with over 30 years of clinical practice in modern scrubs"
+            alt={
+              isDoctor
+                ? `Dr. ${doctorLastName}, aesthetic and cosmetic dentist in ${city}`
+                : `Clinical team and facilities at ${clinicName} in ${city}`
+            }
             fill
             sizes="(max-width: 1024px) 100vw, 480px"
             className="object-cover object-top transition-transform duration-700 group-hover:scale-106"
@@ -31,18 +54,18 @@ export function DoctorPortrait() {
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-on-secondary text-xs font-semibold mb-2 shadow-sm"
           >
             <AnimatedIcon name="crown" animation="crown" size={14} />
-            <span>Castle Connolly Top Dentist</span>
+            <span>{portraitBadge}</span>
           </motion.div>
           <h3 className="font-headline-sm text-xl font-bold text-white">
-            Richard N. Scinico, DMD
+            {portraitName}
           </h3>
           <p className="text-xs text-primary-fixed mt-1">
-            {DOCTOR_DATA.role} • {DOCTOR_DATA.experience}
+            {portraitRole}
           </p>
         </div>
       </motion.div>
 
-      {/* Floating Navy Veteran Ribbon with Floating Spring Physics */}
+      {/* Floating Accreditation Ribbon with Floating Spring Physics */}
       <motion.div
         animate={{ y: [0, -6, 0] }}
         transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
@@ -53,9 +76,9 @@ export function DoctorPortrait() {
           <AnimatedIcon name="shieldCheck" animation="shield" size={18} />
         </div>
         <div>
-          <p className="text-xs font-bold leading-tight">U.S. Navy Veteran</p>
+          <p className="text-xs font-bold leading-tight">{floatingTitle}</p>
           <p className="text-[11px] text-primary-fixed-dim leading-tight">
-            10-Yr Commissioned Officer
+            {floatingSubtitle}
           </p>
         </div>
       </motion.div>

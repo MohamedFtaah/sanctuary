@@ -1,28 +1,28 @@
 export const HERO_DATA = {
-  tagline: "Personalized, honest dental care in Madison’s Near-East Side.",
+  tagline: "Bespoke Smile Transformations & Direct Consultation Flow",
   description:
-    "Independent, physician-led dentistry with zero corporate sales pressure. Led by Dr. Richard N. Scinico, DMD, bringing 30+ years of calm precision, gentle touch, and uncompromising clinical excellence to Winnebago Street.",
+    "Personal clinical portfolio for Dr. Sarah Jenkins in London. Delivering refined, minimally-invasive Composite Bonding & Smile Makeovers with direct private calendar booking.",
   earlyBirdNotice:
-    "Early 7:30 AM Appointments Available Mon–Thu — tailored for UW faculty, state staff, and local professionals before their workday begins.",
+    "Direct Calendar Sync — select your consultation slot with zero reception delay and immediate confirmation.",
   badges: [
     {
       type: "rating" as const,
-      text: "4.9/5 on Google & Reddit",
-      subtext: "(180+ Reviews)",
+      text: "5.0/5 Verified UK Reviews",
+      subtext: "(190+ Reviews)",
     },
     {
       type: "award" as const,
-      text: "Castle Connolly Top Dentist 2022–2026",
+      text: "British Academy of Cosmetic Dentistry",
     },
     {
       type: "heritage" as const,
-      text: "50-Year Near-East Heritage",
+      text: "Sub-Second Mobile Portfolio",
     },
   ],
   statsCards: {
-    satisfaction: "99.4% Patient Comfort",
-    veteranBadge: "U.S. Navy Veteran Clinician",
-    emergencyBadge: "Same-Day Acute Pain Care",
+    satisfaction: "99.2% Case Satisfaction",
+    veteranBadge: "Direct Calendar Access",
+    emergencyBadge: "London Private Practice",
   },
 };
 

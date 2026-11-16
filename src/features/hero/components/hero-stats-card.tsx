@@ -3,11 +3,13 @@
 import * as React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { HERO_DATA } from "../constants/hero-data";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { CountUp } from "@/components/ui/count-up";
 
 export function HeroStatsCard() {
+  const { isDoctor, city, clinicName, doctorLastName } = useLeadProfile();
+
   return (
     <div className="relative w-full max-w-lg lg:max-w-none mx-auto">
       {/* Dynamic 3D Floating Operatory Image */}
@@ -19,7 +21,11 @@ export function HeroStatsCard() {
         <div className="relative aspect-[4/3] w-full overflow-hidden">
           <Image
             src="/images/hero-clinic.jpg"
-            alt="Scinico Family Dental bright serene treatment room with panoramic garden view, ergonomic chair, and 3D digital imaging screen"
+            alt={
+              isDoctor
+                ? `Dr. ${doctorLastName} private cosmetic dentistry suite in ${city}`
+                : `${clinicName} modern private treatment operatory in ${city}`
+            }
             fill
             sizes="(max-width: 1024px) 100vw, 550px"
             className="object-cover transition-transform duration-700 group-hover:scale-108"
@@ -28,7 +34,7 @@ export function HeroStatsCard() {
           <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
         </div>
 
-        {/* Floating Stat Pod 1: Heartbeat Comfort Pod */}
+        {/* Floating Stat Pod 1: Highlighted metric */}
         <motion.div
           animate={{
             y: [0, -8, 0],
@@ -45,17 +51,32 @@ export function HeroStatsCard() {
             <AnimatedIcon name="heart" animation="heart" size={20} />
           </div>
           <div>
-            <p className="text-xs font-extrabold text-primary flex items-center gap-0.5">
-              <CountUp value={99.4} decimals={1} suffix="%" />
-              <span> Patient Comfort</span>
-            </p>
-            <p className="text-[11px] text-on-surface-variant font-medium">
-              Zero Pressure Practice
-            </p>
+            {isDoctor ? (
+              <>
+                <p className="text-xs font-extrabold text-primary flex items-center gap-0.5">
+                  <CountUp value={99.2} decimals={1} suffix="%" />
+                  <span> Case Satisfaction</span>
+                </p>
+                <p className="text-[11px] text-on-surface-variant font-medium">
+                  Bespoke Patient Care
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-xs font-extrabold text-primary flex items-center gap-0.5">
+                  <span>+</span>
+                  <CountUp value={40} decimals={0} suffix="%" />
+                  <span> Consultation Capture</span>
+                </p>
+                <p className="text-[11px] text-on-surface-variant font-medium">
+                  Sub-Second 0.8s Load
+                </p>
+              </>
+            )}
           </div>
         </motion.div>
 
-        {/* Floating Stat Pod 2: Navy Veteran & Shield Pod */}
+        {/* Floating Stat Pod 2: Access & Local Dominance */}
         <motion.div
           animate={{
             y: [0, 8, 0],
@@ -71,19 +92,19 @@ export function HeroStatsCard() {
         >
           <div className="h-10 w-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center">
             <AnimatedIcon
-              name="shieldCheck"
-              animation="shield"
+              name={isDoctor ? "calendar" : "pin"}
+              animation={isDoctor ? "check" : "pin"}
               size={20}
               iconClassName="text-secondary-fixed"
             />
           </div>
           <div>
             <p className="text-xs font-bold text-primary">
-              {HERO_DATA.statsCards.veteranBadge}
+              {isDoctor ? "Direct Calendar Access" : `Local ${city} Map Dominance`}
             </p>
             <p className="text-[11px] text-secondary font-semibold flex items-center gap-1">
               <AnimatedIcon name="sparkle" animation="sparkle" size={12} />
-              <span>Dedicated Operatory</span>
+              <span>{isDoctor ? `${city} Private Practice` : "High-Converting Patient Flow"}</span>
             </p>
           </div>
         </motion.div>

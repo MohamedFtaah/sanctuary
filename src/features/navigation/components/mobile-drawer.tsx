@@ -1,9 +1,12 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
-import { X, Phone, Calendar, MapPin, Clock } from "lucide-react";
-import { NAVIGATION_LINKS, CLINIC_CONTACT } from "../constants/nav-items";
+import { X, Calendar, MapPin, Clock } from "lucide-react";
+import { NAVIGATION_LINKS } from "../constants/nav-items";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/common/logo";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 import { cn } from "@/lib/utils";
 
 interface MobileDrawerProps {
@@ -12,6 +15,12 @@ interface MobileDrawerProps {
 }
 
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
+  const { city, calendlyUrl, isDoctor, doctorLastName, clinicName } = useLeadProfile();
+
+  const brandLocation = isDoctor
+    ? `Dr. ${doctorLastName} Private Suite, ${city}`
+    : `${clinicName}, ${city}`;
+
   return (
     <>
       <div
@@ -67,26 +76,31 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           <div className="flex flex-col gap-2 text-xs text-on-surface-variant font-body-sm mb-2">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-secondary shrink-0" />
-              <span>2037 Winnebago St, Madison</span>
+              <span>{brandLocation}</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-secondary shrink-0" />
-              <span>Mon–Thu: 7:30am – 5:00pm</span>
+              <span>Mon–Fri: 8:30am – 6:00pm</span>
             </div>
           </div>
 
           <Button asChild variant="primary" className="w-full justify-center">
-            <Link href="#appointment-triage" onClick={onClose}>
+            <a
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+              className="flex items-center gap-2"
+            >
               <Calendar className="mr-2 h-4 w-4" />
-              Request Appointment
-            </Link>
+              Book Consultation
+            </a>
           </Button>
 
           <Button asChild variant="outline" className="w-full justify-center">
-            <a href={`tel:${CLINIC_CONTACT.phoneRaw}`}>
-              <Phone className="mr-2 h-4 w-4 text-secondary" />
-              Call ({CLINIC_CONTACT.phone})
-            </a>
+            <Link href="#appointment-triage" onClick={onClose}>
+              <span>Request Consultation Visit</span>
+            </Link>
           </Button>
         </div>
       </div>

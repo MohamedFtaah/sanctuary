@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://scinicodental.com";
+  const baseUrl = "https://sanctuary-beta-nine.vercel.app";
   const lastModified = new Date();
 
   return [
@@ -12,13 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/#about-dr-scinico`,
+      url: `${baseUrl}/#about-doctor`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/#comprehensive-services`,
+      url: `${baseUrl}/#services`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,

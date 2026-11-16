@@ -3,24 +3,23 @@ import { DentalService } from "../types/service.types";
 export const SERVICES_DATA: DentalService[] = [
   {
     id: "3d-imaging",
-    title: "3D Volumetric Imaging & Low-Dose X-Rays",
+    title: "3D Volumetric Imaging & Low-Dose Scans",
     categoryTag: "Diagnostic Precision",
     description:
-      "Sub-millimeter anatomical precision with ultra-low radiation. Detailed bone, nerve, and root scans captured in seconds right in our Madison suite.",
+      "Sub-millimeter anatomical precision with ultra-low radiation. Detailed bone, nerve, and root scans captured in seconds right in our private suite.",
     features: [
       "CBCT 3D Cone Beam Technology",
       "Instant Chairside Digital Display",
       "Up to 90% Lower Dose Than Older Film",
     ],
     icon: "Scan",
-    isPopular: true,
   },
   {
     id: "implants",
-    title: "Dental Implants & Restorations",
+    title: "Dental Implants & Restorative Architecture",
     categoryTag: "Tooth Replacement",
     description:
-      "Permanent, natural-feeling tooth replacements. Dr. Scinico plans and restores titanium implant abutments and high-strength custom ceramic crowns.",
+      "Permanent, natural-feeling tooth replacements. Expertly planned titanium implant abutments and high-strength custom ceramic crowns.",
     features: [
       "Custom Titanium & Zirconia Abutments",
       "Natural Color & Light Translucency",
@@ -30,12 +29,12 @@ export const SERVICES_DATA: DentalService[] = [
   },
   {
     id: "endodontics",
-    title: "Gentle Root Canal & Extractions",
+    title: "Gentle Endodontics & Tooth Preservation",
     categoryTag: "Pain Relief & Preservation",
     description:
       "Relieving acute pain and preserving your natural teeth. Advanced rotary instrumentation makes endodontic procedures quiet, fast, and tranquil.",
     features: [
-      "Advanced Painless Anesthesia",
+      "Advanced Painless Local Anaesthesia",
       "Rotary Nickel-Titanium Precision",
       "Conservative Biological Preservation",
     ],
@@ -43,7 +42,7 @@ export const SERVICES_DATA: DentalService[] = [
   },
   {
     id: "preventative",
-    title: "Preventative Cleanings & Periodontal Therapy",
+    title: "Preventive Hygiene & Periodontal Therapy",
     categoryTag: "Foundation Care",
     description:
       "Thorough ultrasonic scaling, gentle polish, and targeted periodontal maintenance to preserve the bone support of your smile for life.",
@@ -56,7 +55,7 @@ export const SERVICES_DATA: DentalService[] = [
   },
   {
     id: "restorations",
-    title: "Tooth-Colored Fillings & Ceramic Crowns",
+    title: "Tooth-Coloured Fillings & Ceramic Crowns",
     categoryTag: "Biomimetic Restoration",
     description:
       "Mercury-free composite bonding and precision-milled porcelain crowns that seamlessly mimic natural light refraction and enamel density.",
@@ -74,7 +73,7 @@ export const SERVICES_DATA: DentalService[] = [
     description:
       "Custom-fitted clinical whitening trays and handcrafted porcelain veneers designed to complement your facial symmetry and natural tooth shade.",
     features: [
-      "Custom At-Home & In-Office Trays",
+      "Custom At-Home & In-Surgery Trays",
       "Minimally Invasive Enamel Prep",
       "Stain-Resistant Glass Ceramics",
     ],

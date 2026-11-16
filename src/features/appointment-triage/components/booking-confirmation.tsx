@@ -6,6 +6,7 @@ import { Phone, RotateCcw } from "lucide-react";
 import { BookingSubmissionResult } from "../types/appointment.types";
 import { Button } from "@/components/ui/button";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 
 interface BookingConfirmationProps {
   result: BookingSubmissionResult;
@@ -16,6 +17,8 @@ export function BookingConfirmation({
   result,
   onReset,
 }: BookingConfirmationProps) {
+  const { city, calendlyUrl } = useLeadProfile();
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -47,11 +50,11 @@ export function BookingConfirmation({
       </h3>
 
       <p className="font-body-md text-sm sm:text-base text-on-surface-variant max-w-md mx-auto mb-6 leading-relaxed">
-        Our East Madison scheduling coordinator received your triage request at{" "}
+        Our {city} private coordination team received your triage request at{" "}
         <strong className="text-primary">{result.submittedAt}</strong>. We will
-        call or text you at{" "}
+        call or message you at{" "}
         <strong className="text-primary">{result.data.phoneNumber}</strong> within
-        2–4 business hours to finalize your appointment time.
+        2–4 business hours to finalize your consultation time.
       </p>
 
       <div className="w-full max-w-sm rounded-2xl bg-surface-container/60 p-4 mb-6 border border-surface-container-high text-xs text-left">
@@ -74,10 +77,14 @@ export function BookingConfirmation({
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-3">
-        <Button asChild variant="outline" size="sm">
-          <a href="tel:6082496616" className="flex items-center gap-2">
-            <Phone className="h-3.5 w-3.5 text-secondary" />
-            <span>Call Office (608) 249-6616</span>
+        <Button asChild variant="accent" size="sm">
+          <a
+            href={calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2"
+          >
+            <span>Open Direct Calendar</span>
           </a>
         </Button>
 

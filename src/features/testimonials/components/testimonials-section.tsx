@@ -5,11 +5,55 @@ import { Container } from "@/components/common/container";
 import { SectionHeader } from "@/components/common/section-header";
 import { ReviewCard } from "./review-card";
 import { ReviewStats } from "./review-stats";
-import { TESTIMONIALS_DATA } from "../constants/reviews-data";
+import { PatientReview } from "../types/review.types";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 
 export function TestimonialsSection() {
   const containerRef = useScrollReveal();
+  const { isDoctor, doctorLastName, clinicName, city, targetService } = useLeadProfile();
+
+  const title = isDoctor
+    ? "“Bespoke aesthetic artistry and complete clinical clarity.”"
+    : "“Premier clinical standards and seamless private booking.”";
+
+  const description = isDoctor
+    ? `Read verified feedback from private patients who chose Dr. ${doctorLastName} for ${targetService} in ${city}.`
+    : `Read verified feedback from private patients who trust ${clinicName} for world-class cosmetic dentistry in ${city}.`;
+
+  const dynamicReviews: PatientReview[] = React.useMemo(() => {
+    const clinicianRef = isDoctor ? `Dr. ${doctorLastName}` : clinicName;
+
+    return [
+      {
+        id: "review-1",
+        initials: "EM",
+        authorName: "Elena M.",
+        patientContext: `Private Aesthetic Patient • ${city}`,
+        quote: `I had put off cosmetic treatment for years. The consultation with ${clinicianRef} was completely bespoke, gentle, and transparent. The transformation with ${targetService} exceeded all my expectations.`,
+        ratingStars: 5,
+        source: "Verified Google Review",
+      },
+      {
+        id: "review-2",
+        initials: "DK",
+        authorName: "David K.",
+        patientContext: `Smile Makeover Patient • ${city}`,
+        quote: `Other clinics quoted astronomical fees with confusing plans. Here with ${clinicianRef}, the clinical communication was direct, transparent, and refined. The sub-second digital consultation flow made booking effortless.`,
+        ratingStars: 5,
+        source: "Verified Patient Review",
+      },
+      {
+        id: "review-3",
+        initials: "ST",
+        authorName: "Sarah & Mark T.",
+        patientContext: `Private Patient • ${city}`,
+        quote: `Unrivalled aesthetic attention to detail. Having direct calendar access without endless reception phone tag is a game changer for private patients in ${city}.`,
+        ratingStars: 5,
+        source: "Private Patient Consultation",
+      },
+    ];
+  }, [isDoctor, doctorLastName, clinicName, city, targetService]);
 
   return (
     <section
@@ -20,15 +64,15 @@ export function TestimonialsSection() {
         <div ref={containerRef}>
           <SectionHeader
             badge="Verified Patient Experiences"
-            title="&ldquo;The most honest, gentle dentist in Madison.&rdquo;"
-            description="Read verified feedback from our Schenk-Atwood and Near-East neighbors who trust Dr. Scinico with their family's oral health."
+            title={title}
+            description={description}
             badgeVariant="secondary"
           />
 
           <ReviewStats />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {TESTIMONIALS_DATA.map((review) => (
+            {dynamicReviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}
           </div>

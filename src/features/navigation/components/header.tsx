@@ -12,12 +12,14 @@ import { Button } from "@/components/ui/button";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { useNavigation } from "../hooks/use-navigation";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 import { CLINIC_CONTACT } from "../constants/nav-items";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const { isScrolled, activeSection } = useNavigation();
   const { isOpen, toggleMenu, closeMenu } = useMobileMenu();
+  const { calendlyUrl } = useLeadProfile();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
@@ -39,19 +41,29 @@ export function Header() {
           <div className="hidden sm:flex items-center gap-3">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button asChild variant="outline" size="sm" className="hidden xl:inline-flex">
-                <a href={`tel:${CLINIC_CONTACT.phoneRaw}`} className="flex items-center gap-2">
-                  <AnimatedIcon name="phone" animation="phone" size={14} iconClassName="text-secondary" />
-                  <span>{CLINIC_CONTACT.phone}</span>
+                <a
+                  href={calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <AnimatedIcon name="calendar" animation="check" size={14} iconClassName="text-secondary" />
+                  <span>Private Calendar</span>
                 </a>
               </Button>
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button asChild variant="shimmer" size="sm">
-                <Link href="#appointment-triage" className="flex items-center gap-1.5">
+                <a
+                  href={calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5"
+                >
                   <Calendar className="h-4 w-4" />
                   <span>Book Consultation</span>
-                </Link>
+                </a>
               </Button>
             </motion.div>
           </div>

@@ -1,20 +1,20 @@
 import { NavItem, ClinicContactInfo } from "../types/navigation.types";
 
 export const NAVIGATION_LINKS: NavItem[] = [
-  { label: "About Dr. Rick", href: "#about-dr-scinico" },
-  { label: "Services", href: "#comprehensive-services" },
-  { label: "Membership Plan", href: "#membership-plans", badge: "No Insurance" },
+  { label: "About", href: "#about-doctor" },
+  { label: "Services", href: "#services" },
+  { label: "Private Plans", href: "#membership-plans", badge: "Direct Care" },
   { label: "Patient Reviews", href: "#patient-reviews" },
-  { label: "Location & Parking", href: "#location-and-hours" },
+  { label: "Location & Suites", href: "#location-and-hours" },
 ];
 
 export const CLINIC_CONTACT: ClinicContactInfo = {
-  address: "2037 Winnebago St, Suite 1, Madison, WI",
-  phone: "(608) 249-6616",
-  phoneRaw: "6082496616",
-  hours: "Mon–Thu 7:30am–5:00pm, Fri By Appt",
-  emergencyNote: "Emergency triage for acute toothache available",
-  ratingScore: "4.9/5",
-  reviewsCount: "180+ Reviews",
+  address: "Private Consultation Suites, UK",
+  phone: "020 7946 0123",
+  phoneRaw: "02079460123",
+  hours: "Mon–Fri 8:30am–6:00pm, By Appointment",
+  emergencyNote: "Direct private consultation triage available",
+  ratingScore: "5.0/5",
+  reviewsCount: "190+ Reviews",
 };
 

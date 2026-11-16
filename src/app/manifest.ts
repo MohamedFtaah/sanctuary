@@ -2,10 +2,10 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Scinico Family Dental",
-    short_name: "Scinico Dental",
+    name: "Sanctuary Private Aesthetic Dentistry",
+    short_name: "Sanctuary Dental",
     description:
-      "Personalized, honest dental care on Madison’s Near-East Side. Led by Dr. Richard N. Scinico, DMD.",
+      "Sub-second luxury clinical portfolio and high-converting private consultation platform for UK cosmetic dentistry.",
     start_url: "/",
     display: "standalone",
     background_color: "#f3fbff",

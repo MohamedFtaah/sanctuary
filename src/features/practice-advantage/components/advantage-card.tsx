@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { AdvantageItem } from "../types/advantage.types";
 import { Badge } from "@/components/ui/badge";
 import { AnimatedIcon, AnimationType } from "@/components/ui/animated-icon";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 
 const animationMap: Record<string, { icon: string; anim: AnimationType }> = {
   "zero-quotas": { icon: "shield", anim: "shield" },
@@ -14,7 +15,12 @@ const animationMap: Record<string, { icon: string; anim: AnimationType }> = {
 };
 
 export function AdvantageCard({ item }: { item: AdvantageItem }) {
+  const { isDoctor, doctorLastName, clinicName } = useLeadProfile();
   const conf = animationMap[item.id] || { icon: "sparkle", anim: "sparkle" };
+
+  const standardBadge = isDoctor
+    ? `Dr. ${doctorLastName} Standard`
+    : `${clinicName} Standard`;
 
   return (
     <motion.div
@@ -51,7 +57,7 @@ export function AdvantageCard({ item }: { item: AdvantageItem }) {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
         </span>
-        <span>Scinico Clinical Standard</span>
+        <span className="truncate">{standardBadge}</span>
       </div>
     </motion.div>
   );

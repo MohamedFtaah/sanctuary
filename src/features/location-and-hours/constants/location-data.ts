@@ -1,31 +1,31 @@
 import { OfficeHourItem, ClinicAccessPoint } from "../types/location.types";
 
 export const OFFICE_HOURS: OfficeHourItem[] = [
-  { day: "Monday", hours: "7:30 AM – 5:00 PM" },
-  { day: "Tuesday", hours: "7:30 AM – 5:00 PM" },
-  { day: "Wednesday", hours: "7:30 AM – 5:00 PM" },
-  { day: "Thursday", hours: "7:30 AM – 5:00 PM" },
-  { day: "Friday", hours: "By Appointment / Urgent Care", isSpecial: true },
-  { day: "Saturday – Sunday", hours: "Closed (Emergency on-call routing)" },
+  { day: "Monday", hours: "8:30 AM – 6:00 PM" },
+  { day: "Tuesday", hours: "8:30 AM – 6:00 PM" },
+  { day: "Wednesday", hours: "8:30 AM – 6:00 PM" },
+  { day: "Thursday", hours: "8:30 AM – 6:00 PM" },
+  { day: "Friday", hours: "8:30 AM – 5:00 PM (Consultations)", isSpecial: true },
+  { day: "Saturday – Sunday", hours: "Private Consultations By Appointment" },
 ];
 
 export const CLINIC_ACCESS_POINTS: ClinicAccessPoint[] = [
   {
-    title: "Dedicated Rear Parking Lot",
+    title: "Dedicated Private Patient Parking",
     description:
-      "Turn directly behind the building for dedicated reserved patient parking spaces with no meters or time limits.",
+      "Reserved off-street patient parking spaces directly adjacent to the practice for complete convenience.",
     icon: "Car",
   },
   {
-    title: "Barrier-Free ADA Ramp Entrance",
+    title: "Step-Free Level Access & Lift",
     description:
-      "Full ADA accessible ramp from the private parking lot straight into our Suite 1 ground-level treatment wing.",
+      "Fully accessible step-free entrance and private lift access straight into our ground-floor consultation suites.",
     icon: "Accessibility",
   },
   {
-    title: "Metro Transit & Bike Friendly",
+    title: "Prime Central Transit Links",
     description:
-      "Steps from Madison Metro bus stops on Winnebago St and minutes from the Capital City State Bike Trail.",
+      "Minutes from central railway and underground stations with seamless private arrival and discreet entrance.",
     icon: "Bus",
   },
 ];

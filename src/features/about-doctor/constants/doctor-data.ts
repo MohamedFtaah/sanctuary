@@ -1,33 +1,33 @@
 export const DOCTOR_DATA = {
-  name: 'Dr. Richard ("Rick") Scinico, DMD',
-  role: "Lead Clinician & Practice Owner",
-  experience: "30+ Years Clinical Practice",
-  veteranTitle: "U.S. Navy Veteran • 10-Yr Commissioned Officer",
+  name: "Dr. Sarah Jenkins",
+  role: "Aesthetic Dentistry Specialist & Practice Owner",
+  experience: "15+ Years Clinical Practice",
+  veteranTitle: "GDC Registered Specialist",
   quote:
-    "My goal is simple: listen closely to what you want, present honest diagnostic realities with zero pressure, and provide gentle, world-class dental care right here in Madison.",
+    "My goal is simple: listen closely to your aesthetic aspirations, present honest diagnostic realities with zero pressure, and provide gentle, world-class cosmetic dental care in London.",
   bioParagraphs: [
-    "Dr. Rick Scinico has spent three decades refining a gentle, patient-centric approach to dentistry. Following service as a dental officer in the United States Navy Dental Corps, Dr. Scinico established his private practice on Madison's East Side.",
-    "Rather than managing a commercial volume-driven enterprise, Dr. Scinico remains directly hands-on with every patient—from preventive diagnostics and complex restorative crown work to gentle root canals and implant restorations.",
-    "Known across Dane County for a famously calm bedside manner, Dr. Rick specializes in putting dental-anxious individuals at ease with clear communication, painless anesthesia techniques, and conservative diagnostics.",
+    "Dr. Sarah Jenkins has dedicated over fifteen years to refining a gentle, patient-centric approach to private cosmetic dentistry in London.",
+    "Rather than managing a commercial volume-driven clinic, Dr. Jenkins remains directly hands-on with every patient—from digital smile previews and composite bonding to handcrafted porcelain veneers.",
+    "Known across the UK for a calm, discreet bedside manner, Dr. Jenkins specialises in putting dental-anxious individuals at ease with clear communication, painless techniques, and conservative diagnostics.",
   ],
   credentials: [
     {
-      title: "Doctor of Dental Medicine (DMD)",
-      institution: "Southern Illinois University School of Dental Medicine",
+      title: "Bachelor of Dental Surgery (BDS)",
+      institution: "King's College London Dental Institute",
       type: "education",
     },
     {
-      title: "Postgraduate Esthetics & Implants",
-      institution: "University of Minnesota Dental School Continuing Education",
+      title: "MSc Aesthetic & Restorative Dentistry",
+      institution: "UCL Eastman Dental Institute",
       type: "specialty",
     },
     {
-      title: "U.S. Navy Dental Corps Officer",
-      institution: "10-Year Commissioned Service, Lieutenant Commander",
+      title: "British Academy of Cosmetic Dentistry",
+      institution: "Active Member & Accredited Fellow",
       type: "military",
     },
     {
-      title: "Castle Connolly Top Dentist",
+      title: "UK Aesthetic Dentistry Awards",
       institution: "Selected by Peer Recognition 2022–2026",
       type: "award",
     },

@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { clinicJsonLd } from "@/lib/seo-schema";
+import { LeadProfileProvider } from "@/features/lead-profile/context/lead-profile-context";
 import { Header } from "@/features/navigation/components/header";
 import { FooterSection } from "@/features/footer/components/footer-section";
 import { FloatingEmergencyFab } from "@/components/ui/floating-emergency-fab";
@@ -22,58 +23,56 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://scinicodental.com"),
+  metadataBase: new URL("https://sanctuary-beta-nine.vercel.app"),
   title: {
-    default: "Scinico Family Dental | Madison, WI | Independent Near-East Dentistry",
-    template: "%s | Scinico Family Dental",
+    default: "Private Aesthetic Dentistry & Bespoke Smile Transformations | UK",
+    template: "%s | Private Cosmetic Dentistry",
   },
   description:
-    "Personalized, honest dental care on Madison’s Near-East Side. Led by Dr. Richard N. Scinico, DMD with 30+ years of conservative, gentle clinical excellence. In-house membership plans, 3D imaging & reserved parking.",
+    "Refined UK private cosmetic dentistry and bespoke smile design. High-converting consultation workflows, composite bonding, porcelain veneers, and sub-second patient experience.",
   keywords: [
-    "Madison WI dentist",
-    "Near East Side Madison dentistry",
-    "Dr Richard Scinico DMD",
-    "Schenk-Atwood dental clinic",
-    "dental membership plan Madison",
-    "3D cone beam dentist Dane County",
-    "emergency dentist Madison WI",
-    "gentle dental care for dental anxiety",
-    "conservative dentist Madison",
-    "independent private dentist Madison",
+    "UK cosmetic dentist",
+    "private aesthetic dentistry London",
+    "composite bonding UK",
+    "porcelain veneers consultation",
+    "sub second dental portfolio",
+    "private dental booking calendar",
+    "smile makeovers UK",
+    "minimally invasive dentistry",
   ],
-  authors: [{ name: "Dr. Richard N. Scinico, DMD" }],
-  creator: "Scinico Family Dental",
-  publisher: "Scinico Family Dental",
+  authors: [{ name: "Private Aesthetic Dentistry Specialist" }],
+  creator: "Sanctuary Dental Interactive Prototype",
+  publisher: "Sanctuary Dental Interactive Prototype",
   formatDetection: {
     telephone: true,
     address: true,
     email: true,
   },
   alternates: {
-    canonical: "https://scinicodental.com",
+    canonical: "https://sanctuary-beta-nine.vercel.app",
   },
   openGraph: {
-    title: "Scinico Family Dental | Honest, Independent Dental Care in Madison, WI",
+    title: "Private Aesthetic Dentistry & Bespoke Smile Transformations | UK",
     description:
-      "Independent, physician-led dentistry with zero corporate pressure. 30+ years clinical excellence on historic Winnebago Street.",
-    url: "https://scinicodental.com",
-    siteName: "Scinico Family Dental",
+      "Sub-second luxury clinical portfolio and high-converting private consultation platform for UK cosmetic dentistry.",
+    url: "https://sanctuary-beta-nine.vercel.app",
+    siteName: "Sanctuary Dental Prototype",
     images: [
       {
         url: "/images/hero-clinic.jpg",
         width: 1200,
         height: 630,
-        alt: "Scinico Family Dental modern operatory in Madison WI",
+        alt: "Private cosmetic dentistry modern operatory suite",
       },
     ],
-    locale: "en_US",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Scinico Family Dental | Madison, WI",
+    title: "Private Aesthetic Dentistry | UK",
     description:
-      "Gentle, honest family and restorative dentistry in Madison's Schenk-Atwood neighborhood.",
+      "Bespoke smile design and direct private consultation flow.",
     images: ["/images/hero-clinic.jpg"],
   },
   robots: {
@@ -95,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={plusJakartaSans.variable}>
+    <html lang="en-GB" className={plusJakartaSans.variable}>
       <head>
         <script
           type="application/ld+json"
@@ -113,13 +112,15 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-        <Header />
+        <LeadProfileProvider>
+          <Header />
 
-        <div className="flex-1 flex flex-col">{children}</div>
+          <div className="flex-1 flex flex-col">{children}</div>
 
-        <FloatingEmergencyFab />
+          <FloatingEmergencyFab />
 
-        <FooterSection />
+          <FooterSection />
+        </LeadProfileProvider>
 
         {/* CRM Prototype Safe Analytics Tracker (Zero-Spam & Beacon Powered) */}
         <Script

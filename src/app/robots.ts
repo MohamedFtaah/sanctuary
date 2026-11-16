@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/admin/"],
       },
     ],
-    sitemap: "https://scinicodental.com/sitemap.xml",
+    sitemap: "https://sanctuary-beta-nine.vercel.app/sitemap.xml",
   };
 }
 

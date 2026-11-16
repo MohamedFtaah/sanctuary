@@ -1,8 +1,16 @@
+"use client";
+
 import * as React from "react";
-import { CLINIC_CONTACT } from "../constants/nav-items";
+import { useLeadProfile } from "@/features/lead-profile/context/lead-profile-context";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 
 export function AnnouncementBar() {
+  const { city, isDoctor, doctorLastName, clinicName, calendlyUrl } = useLeadProfile();
+
+  const locationText = isDoctor
+    ? `Dr. ${doctorLastName} Private Practice • ${city}, UK`
+    : `${clinicName} • ${city}, UK`;
+
   return (
     <div className="w-full bg-primary-container text-on-primary font-label-credential text-label-credential py-2 px-margin-mobile lg:px-margin transition-colors border-b border-primary/20">
       <div className="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-y-1.5 gap-x-space-md">
@@ -15,36 +23,38 @@ export function AnnouncementBar() {
               size={14}
               iconClassName="text-tertiary-fixed-dim group-hover:text-secondary-fixed"
             />
-            <span>{CLINIC_CONTACT.address}</span>
+            <span>{locationText}</span>
           </span>
 
           <span className="hidden md:inline-block text-outline-variant/40">•</span>
 
-          {/* Phone with Ringing Animation */}
+          {/* Direct Consultation Link */}
           <a
             className="flex items-center gap-1.5 hover:text-secondary-fixed transition-colors group"
-            href={`tel:${CLINIC_CONTACT.phoneRaw}`}
+            href={calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <AnimatedIcon
-              name="phone"
-              animation="phone"
+              name="calendar"
+              animation="check"
               size={14}
               iconClassName="text-tertiary-fixed-dim group-hover:text-secondary-fixed"
             />
-            <span>{CLINIC_CONTACT.phone}</span>
+            <span>Direct Calendar Booking</span>
           </a>
 
           <span className="hidden xl:inline-block text-outline-variant/40">•</span>
 
-          {/* Hours with Ticking Clock */}
+          {/* Sub-Second Experience */}
           <span className="hidden xl:flex items-center gap-1.5 text-surface-dim">
             <AnimatedIcon
-              name="clock"
-              animation="clock"
+              name="sparkle"
+              animation="sparkle"
               size={14}
               iconClassName="text-tertiary-fixed-dim"
             />
-            <span>{CLINIC_CONTACT.hours}</span>
+            <span>Sub-Second Interactive Portfolio</span>
           </span>
         </div>
 
@@ -55,7 +65,7 @@ export function AnnouncementBar() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-fixed" />
             </span>
-            <span>Open Mon–Thu 7:30 AM</span>
+            <span>Private Consultations Available</span>
           </div>
 
           {/* Rating with Sparkle Star */}
@@ -67,10 +77,10 @@ export function AnnouncementBar() {
               iconClassName="fill-secondary-fixed-dim text-secondary-fixed-dim"
             />
             <span className="font-label-interactive text-label-interactive text-surface-bright">
-              {CLINIC_CONTACT.ratingScore}
+              5.0/5
             </span>
             <span className="text-outline-variant text-[11px]">
-              ({CLINIC_CONTACT.reviewsCount})
+              (Verified UK Reviews)
             </span>
           </div>
         </div>

@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/features/testimonials/components/testimon
 import { LocationSection } from "@/features/location-and-hours/components/location-section";
 import { FaqSection } from "@/features/faq/components/faq-section";
 
+
 export default function HomePage() {
   return (
     <main id="main-content" className="flex-1 flex flex-col w-full">

@@ -1020,60 +1020,120 @@ function handleFormSubmit(event) {
 <!-- CRM Prototype Safe Analytics Tracker (Zero-Spam & Beacon Powered) -->
 <script>
 (function() {
-  var urlParams = new URLSearchParams(window.location.search);
-  var leadId = urlParams.get('ref');
-  if (!leadId) return;
+  // 1. فحص الباراميترات ووضع المعاينة الآمنة
+  const urlParams = new URLSearchParams(window.location.search);
+  const leadId = urlParams.get('ref');
+  const isAdminPreview = urlParams.get('preview') === 'admin' || leadId === 'preview';
 
-  var timeSpent = 0;
-  var timer = setInterval(function() { timeSpent += 5; }, 5000);
+  // إذا لم يكن هناك عميل محدد أو كانت معاينة إدارة، يتم إيقاف التتبع
+  if (!leadId || isAdminPreview) return;
 
-  function sendTelemetry(clickedBooking, clickedWhatsApp) {
-    var payload = JSON.stringify({
-      leadId: leadId,
-      timeSpentSeconds: timeSpent,
-      clickedBooking: Boolean(clickedBooking),
-      clickedWhatsApp: Boolean(clickedWhatsApp),
-      pageUrl: window.location.href,
-      referrer: document.referrer || ''
-    });
+  const CRM_WEBHOOK_URL = 'https://increases-laugh-concerts-snapshot.trycloudflare.com/api/v1/webhooks/prototype-visit';
 
-    var endpoint = 'https://involved-nerti-o0sans0o-a85dfacc.apps.mistral.run/api/v1/webhooks/prototype-visit';
+  // 2. جمع بيانات الجهاز والشاشة
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/i.test(navigator.userAgent);
+  const deviceType = isTablet ? 'tablet' : isMobile ? 'mobile' : 'desktop';
+  const screenResolution = `${window.screen.width}x${window.screen.height}`;
+  const platform = navigator.platform || 'Unknown';
 
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon(endpoint, payload);
-    } else {
-      fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: payload,
-        keepalive: true
-      });
+  // 3. حساب وقت التصفح الفعلي (يتوقف عند مغادرة التبويب)
+  let activeSeconds = 0;
+  let maxScrollDepth = 0;
+  let intervalTimer = null;
+
+  function startTimer() {
+    if (!intervalTimer) {
+      intervalTimer = setInterval(() => {
+        if (!document.hidden) {
+          activeSeconds += 1;
+        }
+      }, 1000);
     }
   }
 
-  // تتبع النقرات على أزرار الحجز والواتساب تلقائياً
-  window.addEventListener('click', function(e) {
-    var target = e.target.closest('a, button');
+  function stopTimer() {
+    clearInterval(intervalTimer);
+    intervalTimer = null;
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopTimer();
+    else startTimer();
+  });
+  startTimer();
+
+  // 4. حساب عمق التمرير Scroll Depth
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if (docHeight > 0) {
+      const currentDepth = Math.round((scrollTop / docHeight) * 100);
+      if (currentDepth > maxScrollDepth) {
+        maxScrollDepth = Math.min(100, currentDepth);
+      }
+    }
+  }, { passive: true });
+
+  // 5. دالة إرسال البيانات للـ CRM
+  function sendTelemetry(actionType = null, extraDetails = '') {
+    const payload = {
+      leadId: leadId,
+      pageUrl: window.location.href,
+      timeSpent: activeSeconds,
+      scrollDepth: maxScrollDepth,
+      deviceType: deviceType,
+      screenResolution: screenResolution,
+      platform: platform,
+      action: actionType,
+      details: extraDetails
+    };
+
+    const data = JSON.stringify(payload);
+    if (navigator.sendBeacon) {
+      const blob = new Blob([data], { type: 'application/json' });
+      navigator.sendBeacon(CRM_WEBHOOK_URL, blob);
+    } else {
+      fetch(CRM_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: data,
+        keepalive: true
+      }).catch(() => {});
+    }
+  }
+
+  // 6. تتبع النقرات الحاسمة (CTA Clicks)
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('a, button');
     if (!target) return;
-    var href = (target.getAttribute('href') || '').toLowerCase();
-    var text = (target.innerText || '').toLowerCase();
 
-    if (href.includes('wa.me') || href.includes('whatsapp') || text.includes('واتساب') || text.includes('whatsapp')) {
-      sendTelemetry(false, true);
-    } else if (href.includes('calendly') || href.includes('cal.com') || href.includes('booking') || text.includes('احجز') || text.includes('book') || text.includes('موعد')) {
-      sendTelemetry(true, false);
+    const href = target.getAttribute('href') || '';
+    const text = target.innerText || target.getAttribute('aria-label') || '';
+
+    if (href.includes('wa.me') || href.includes('whatsapp') || /واتساب|whatsapp/i.test(text)) {
+      sendTelemetry('WHATSAPP_CLICK', `Clicked WhatsApp: ${text.trim()}`);
+    } else if (href.includes('booking') || href.includes('calendly') || /حجز|احجز|book/i.test(text)) {
+      sendTelemetry('BOOKING_CLICK', `Clicked Booking: ${text.trim()}`);
+    } else if (href.startsWith('tel:') || /اتصل|call/i.test(text)) {
+      sendTelemetry('PHONE_CLICK', `Clicked Phone: ${href}`);
     }
   });
 
-  // إرسال مدة المكوث عند مغادرة الصفحة أو إغلاقها
-  window.addEventListener('beforeunload', function() {
-    sendTelemetry(false, false);
-  });
-  window.addEventListener('visibilitychange', function() {
-    if (document.visibilityState === 'hidden') {
-      sendTelemetry(false, false);
+  // 7. إرسال نبضة تحديث دورية كل 30 ثانية + نبضة عند مغادرة أو إغلاق الصفحة
+  setInterval(() => {
+    if (activeSeconds > 0 && !document.hidden) {
+      sendTelemetry();
+    }
+  }, 30000);
+
+  window.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      sendTelemetry();
     }
   });
+
+  window.addEventListener('pagehide', () => sendTelemetry());
 })();
 </script>
 </body></html>
